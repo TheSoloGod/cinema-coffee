@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\MovieService\MovieServiceInterface;
 use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
+    protected $movieService;
+
+    public function __construct(MovieServiceInterface $movieService)
+    {
+        $this->movieService = $movieService;
+    }
+
     /**
      * Display a listing of the resource.
      *

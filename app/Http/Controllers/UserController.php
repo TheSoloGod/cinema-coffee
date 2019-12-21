@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\ExtensionService\ExtensionServiceInterface;
+use App\Services\UserService\UserServiceInterface;
 use Illuminate\Http\Request;
 
-class ExtensionController extends Controller
+class UserController extends Controller
 {
-    protected $extensionService;
+    protected $userService;
 
-    public function __construct(ExtensionServiceInterface $extensionService)
+    public function __construct(UserServiceInterface $userService)
     {
-        $this->extensionService = $extensionService;
+        $this->userService = $userService;
     }
 
     /**

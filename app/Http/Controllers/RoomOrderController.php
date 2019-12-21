@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\RoomOrderService\RoomOrderServiceInterface;
 use Illuminate\Http\Request;
 
 class RoomOrderController extends Controller
 {
+    protected $roomOrderService;
+
+    public function __construct(RoomOrderServiceInterface $roomOrderService)
+    {
+        $this->roomOrderService = $roomOrderService;
+    }
+
     /**
      * Display a listing of the resource.
      *

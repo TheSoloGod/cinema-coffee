@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\NewsService\NewsServiceInterface;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
+    protected $newsService;
+
+    public function __construct(NewsServiceInterface $newsService)
+    {
+        $this->newsService = $newsService;
+    }
+
     /**
      * Display a listing of the resource.
      *

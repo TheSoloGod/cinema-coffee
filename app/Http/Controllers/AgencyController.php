@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\AgencyService\AgencyServiceInterface;
 use Illuminate\Http\Request;
 
 class AgencyController extends Controller
 {
+    protected $agencyService;
+
+    public function __construct(AgencyServiceInterface $agencyService)
+    {
+        $this->agencyService = $agencyService;
+    }
+
     /**
      * Display a listing of the resource.
      *
