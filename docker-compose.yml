@@ -14,8 +14,8 @@ services:
 
   db:
     image: mysql:5.7
-    container_name: cc-db
-    hostname: cc-db
+    container_name: cc.database
+    hostname: cc.database
     restart: always
     volumes:
       - ./data/mysql:/var/lib/mysql
