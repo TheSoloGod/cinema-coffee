@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\RoomPriceService\RoomPriceServiceInterface;
 use Illuminate\Http\Request;
 
 class RoomPriceController extends Controller
 {
+    protected $roomPriceService;
+
+    public function __construct(RoomPriceServiceInterface $roomPriceService)
+    {
+        $this->roomPriceService = $roomPriceService;
+    }
+
     /**
      * Display a listing of the resource.
      *

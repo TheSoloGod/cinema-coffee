@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\MenuService\MenuServiceInterface;
 use Illuminate\Http\Request;
 
 class MenuController extends Controller
 {
+    protected $menuService;
+
+    public function __construct(MenuServiceInterface $menuService)
+    {
+        $this->menuService = $menuService;
+    }
+
     /**
      * Display a listing of the resource.
      *
