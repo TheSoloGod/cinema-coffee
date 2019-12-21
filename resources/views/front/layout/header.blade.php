@@ -1,8 +1,8 @@
 <link href="{{asset('front/home/navbar.css')}}" rel="stylesheet">
 <div class="container-fluid bg-orange border border-bottom font-weight-bold">
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-orange sticky-top">
-            <a class="navbar-brand m-0 p-0" href="#" style="width: 150px">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-orange sticky-top">
+            <a class="navbar-brand m-0 p-0" href="#" style="width: 190px">
                 <img src="http://dunellen-theater.com/wp-content/uploads/2018/12/dunellen-theater-logo.png" class="w-75">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -15,14 +15,14 @@
                 <!-- Left side of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link active" href="#">Trang chủ<span class="sr-only">(current)</span></a>
+                        <a class="nav-link link-ltr dropdown" href="#">Trang chủ<span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link nav-link-ltr dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Cơ sở
                         </a>
-                        <div class="dropdown-menu bg-orange" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu bg-orange mt-4" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">Xã Đàn</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Mỹ Đình</a>
@@ -32,12 +32,12 @@
                             <a class="dropdown-item" href="#">Long Biên</a>
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link nav-link-ltr dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Dịch vụ
                         </a>
-                        <div class="dropdown-menu bg-orange" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu bg-orange mt-4" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">Cafe phim phòng riêng</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Xem phim gia đình</a>
@@ -51,32 +51,32 @@
                             <a class="dropdown-item" href="#">Tổ chức hội thảo, học nhóm</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link nav-link-ltr" href="#">
                             Giá phòng
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link nav-link-ltr" href="#">
                             Đặt phòng
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link nav-link-ltr" href="#">
                             Thực đơn
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link nav-link-ltr" href="#">
                             Phim
                         </a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link nav-link-ltr dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Tin tức
                         </a>
-                        <div class="dropdown-menu bg-orange" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu bg-orange mt-4" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">Khyến mại</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Cafe phim</a>
@@ -91,16 +91,16 @@
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Đăng nhập') }}</a>
+                            <a class="nav-link active" href="{{ route('login') }}">{{ __('Đăng nhập') }}</a>
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Đăng kí') }}</a>
+                                <a class="nav-link active" href="{{ route('register') }}">{{ __('Đăng kí') }}</a>
                             </li>
                         @endif
                     @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle active" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
@@ -109,7 +109,7 @@
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                                    {{ __('Đăng xuất') }}
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
