@@ -16,7 +16,7 @@ class CreateExtensionsTable extends Migration
         Schema::create('extensions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('content')->nullable();
+            $table->text('content')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });

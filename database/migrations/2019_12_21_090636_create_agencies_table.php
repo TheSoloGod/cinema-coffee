@@ -18,7 +18,7 @@ class CreateAgenciesTable extends Migration
             $table->string('name');
             $table->string('phone');
             $table->string('address');
-            $table->string('content')->nullable();
+            $table->text('content')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });

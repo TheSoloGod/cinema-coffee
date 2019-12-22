@@ -30,14 +30,15 @@
 
     <!-- SCRIPT -->
     <script src="{{ asset('front/home/home.js') }}"></script>
+    <script type="text/javascript" src="{{asset('js/ckeditor/ckeditor.js')}}"></script>
 
 
 </head>
 <body>
 
-@include('back.layout.side-bar')
+{{--@include('back.layout.side-bar')--}}
 {{--@include('back.layout.header')--}}
-<div>
+<div class="container pt-3">
     @yield('content')
 </div>
 @include('back.layout.footer')

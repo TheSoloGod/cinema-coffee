@@ -25,3 +25,9 @@ Route::get('/home', function () {
 Route::get('/admin', function () {
     return view('back.home.home');
 });
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::resource('agencies', 'AgencyController');
+    Route::resource('extensions', 'ExtensionController');
+});
+
