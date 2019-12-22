@@ -116,7 +116,7 @@
             <!-- romantic -->
             <div class="mt-4 text-center">
                 <div style="color: #dd903c; font-size: xx-large; font-weight: bold">
-                    0Không gian lãng mạn
+                    Không gian lãng mạn
                 </div>
                 <hr>
                 <div class="row">

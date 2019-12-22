@@ -21,3 +21,7 @@ Auth::routes();
 Route::get('/home', function () {
     return view('front.home.home');
 });
+
+Route::get('/admin', function () {
+    return view('back.home.home');
+});
