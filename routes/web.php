@@ -27,5 +27,5 @@ Route::get('/admin', function () {
 });
 
 Route::get('/test', function () {
-    return view('front.extension.extension-detail');
+    return view('front.room-price.room-price-total');
 });
