@@ -11,17 +11,41 @@
 |
 */
 
-Route::get('/', function () {
-    return view('front.home.home');
-});
-
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home', function () {
-    return view('front.home.home');
-});
 
+// route front for user
+Route::get('/', function () {return view('front.home.home');})->name('home');
+
+Route::get('/agency', function () {return view('front.agency.agency-total');})->name('agency');
+Route::get('/agency/detail', function () {return view('front.agency.agency-detail');})->name('agency.detail');
+
+Route::get('/extension', function () {return view('front.extension.extension-total');})->name('extension');
+Route::get('/extension/detail', function () {return view('front.extension.extension-detail');})->name('extension.detail');
+
+Route::get('/movie', function () {return view('front.movie.movie-total');})->name('movie');
+Route::get('/movie/detail', function () {return view('front.movie.movie-detail');})->name('movie.detail');
+Route::get('/movie/search', function () {return view('front.movie.movie-search');})->name('movie.search');
+
+Route::get('/menu', function () {return view('front.menu.menu-total');})->name('menu');
+
+Route::get('/news', function () {return view('front.news.news-total');})->name('news');
+Route::get('/news/detail', function () {return view('front.news.news-detail');})->name('news.detail');
+Route::get('/news/promo', function () {return view('front.news.promo');})->name('promo');
+Route::get('/news/hiring', function () {return view('front.news.hiring');})->name('hiring');
+
+Route::get('/room-order', function () {return view('front.room-order.room-order');})->name('room.order');
+
+Route::get('/room-price', function () {return view('front.room-price.room-price-total');})->name('room.price');
+
+
+// route back for admin
 Route::get('/admin', function () {
     return view('back.home.home');
+});
+
+
+// route test
+Route::get('/test', function () {
+    return view('front.news.hiring');
 });
