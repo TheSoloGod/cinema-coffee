@@ -27,5 +27,5 @@ Route::get('/admin', function () {
 });
 
 Route::get('/test', function () {
-    return view('front.agency.agency-total');
+    return view('front.agency.agency-detail');
 });

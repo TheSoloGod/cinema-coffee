@@ -8,3 +8,22 @@
     font-size: xx-large;
     font-weight: bold;
 }
+
+.sticky-item {
+    padding: 20px 0 20px 15px;
+    background-color: #DDDDDD;
+    color: #666666;
+}
+
+.sticky-item:hover {
+    background-color: darkorange;
+    color: white;
+}
+
+.sticky-menu a {
+    color: black;
+}
+
+.sticky-menu a:hover {
+    text-decoration: none;
+}
