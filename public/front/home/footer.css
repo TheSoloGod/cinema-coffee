@@ -2,6 +2,14 @@
     color: #de903c;
 }
 
+.footer a {
+    color: #de903c;
+}
+
+.footer a:hover {
+    color: white;
+}
+
 .main-footer {
     position: relative;
     padding: 80px 0 50px 0;

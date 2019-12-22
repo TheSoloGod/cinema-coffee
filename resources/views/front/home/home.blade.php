@@ -37,14 +37,14 @@
 
             <!-- intro -->
             <div class="shadow-body text-center mt-4">
-                <div class="pt-4 pb-2" style="color: black; font-size: xx-large; font-weight: bold">
+                <div class="pt-4 pb-2 subtitle-body" style="color: black">
                     Cafe phim phòng riêng
                 </div>
                 <div class="pl-5 pr-5">
                     là hệ thống rạp chiếu phim mini hàng đầu Hà Nội được nhiều người yêu thích và lựa chọn hiện nay với
                     chất lượng dịch vụ đỉnh cao không thua kém gì các rạp chiếu phim cỡ lớn.
                 </div>
-                <div class="pt-2 pb-2" style="color: #dd903c; font-size: xx-large; font-weight: bold">
+                <div class="pt-2 pb-2 subtitle-body">
                     Cafe phim
                 </div>
                 <div class="pl-5 pr-5">
@@ -52,7 +52,7 @@
                     nghệ thuật ẩm thực. Với dịch vụ cao cấp, sáng tạo và độc đáo của Cine café, chúng tôi tin bạn sẽ có
                     những giờ phút tận hưởng “ Hơn cả rạp chiếu phim” tại đây.
                 </div>
-                <div class="pt-3 pb-5" style="color: red; font-size: xx-large; font-weight: bold">
+                <div class="pt-3 pb-5 subtitle-body" style="color: red">
                     HOTLINE ĐẶT PHÒNG: 036 586 9993
                 </div>
             </div>
@@ -70,7 +70,7 @@
 
             <!-- agency -->
             <div class="mt-4 text-center">
-                <div style="color: #dd903c; font-size: xx-large; font-weight: bold">
+                <div class="subtitle-body">
                     04 cơ sở Cafe Phim với hơn 40 phòng chiếu
                 </div>
                 <hr>
@@ -115,7 +115,7 @@
 
             <!-- romantic -->
             <div class="mt-4 text-center">
-                <div style="color: #dd903c; font-size: xx-large; font-weight: bold">
+                <div class="subtitle-body">
                     Không gian lãng mạn
                 </div>
                 <hr>
@@ -144,7 +144,7 @@
 
             <!-- service -->
             <div class="mt-4 text-center">
-                <div style="color: #dd903c; font-size: xx-large; font-weight: bold">
+                <div class="subtitle-body">
                     Dịch vụ đa dạng
                 </div>
                 <hr>
@@ -186,7 +186,7 @@
 
             <!-- foods -->
             <div class="mt-4 text-center">
-                <div style="color: #dd903c; font-size: xx-large; font-weight: bold">
+                <div class="subtitle-body">
                     Ẩm thực độc đáo
                 </div>
                 <hr>

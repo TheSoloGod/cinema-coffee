@@ -25,3 +25,7 @@ Route::get('/home', function () {
 Route::get('/admin', function () {
     return view('back.home.home');
 });
+
+Route::get('/test', function () {
+    return view('front.agency.agency-total');
+});

@@ -15,10 +15,10 @@
                 <!-- Left side of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link link-ltr dropdown" href="#">Trang chủ<span class="sr-only">(current)</span></a>
+                        <a class="nav-link nav-link-grow-up dropdown" href="#">Trang chủ<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown active">
-                        <a class="nav-link nav-link-ltr dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <a class="nav-link nav-link-grow-up dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Cơ sở
                         </a>
@@ -33,7 +33,7 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown active">
-                        <a class="nav-link nav-link-ltr dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <a class="nav-link nav-link-grow-up dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Dịch vụ
                         </a>
@@ -52,27 +52,27 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown active">
-                        <a class="nav-link nav-link-ltr" href="#">
+                        <a class="nav-link nav-link-grow-up" href="#">
                             Giá phòng
                         </a>
                     </li>
                     <li class="nav-item dropdown active">
-                        <a class="nav-link nav-link-ltr" href="#">
+                        <a class="nav-link nav-link-grow-up" href="#">
                             Đặt phòng
                         </a>
                     </li>
                     <li class="nav-item dropdown active">
-                        <a class="nav-link nav-link-ltr" href="#">
+                        <a class="nav-link nav-link-grow-up" href="#">
                             Thực đơn
                         </a>
                     </li>
                     <li class="nav-item dropdown active">
-                        <a class="nav-link nav-link-ltr" href="#">
+                        <a class="nav-link nav-link-grow-up" href="#">
                             Phim
                         </a>
                     </li>
                     <li class="nav-item dropdown active">
-                        <a class="nav-link nav-link-ltr dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <a class="nav-link nav-link-grow-up dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Tin tức
                         </a>

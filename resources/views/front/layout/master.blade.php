@@ -27,6 +27,7 @@
 
     <!-- CSS -->
     <link href="{{asset('front/home/home.css')}}" rel="stylesheet">
+    <link href="{{asset('front/side-page/header.css')}}" rel="stylesheet">
 
     <!-- SCRIPT -->
     <script src="{{ asset('front/home/home.js') }}"></script>
