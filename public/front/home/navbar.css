@@ -6,19 +6,21 @@
     background-color: #dd903c;
 }
 
-.dropdown>.dropdown-menu {
-    top: 200%;
-    transition: 0.3s all ease-in-out;
+.nav-link::before {
+    transition: 300ms;
+    height: 10px;
+    content: "";
+    position: absolute;
+    background-color: #CC6633;
 }
 
-.dropdown:hover>.dropdown-menu {
-    display: block;
-    top: 100%;
+.nav-link-ltr::before {
+    width: 0%;
+    bottom: -25px;
 }
 
-.dropdown>.dropdown-toggle:active {
-    /*Without this, clicking will make it sticky*/
-    pointer-events: none;
+.nav-link-ltr:hover::before {
+    width: 100%;
 }
 
 .border-orange {
@@ -28,4 +30,34 @@
 .shadow-body {
     width: 100%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.dropdown-menu {
+    padding: 0;
+}
+
+.dropdown-item {
+    color: white;
+}
+
+.dropdown-item {
+    font-weight: bold;
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5%;
+}
+
+.dropdown-item:hover {
+    color: white;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5%;
+    text-align: left;
+    background-color: #CC6633;
+}
+
+.dropdown-divider {
+    margin: 0;
 }

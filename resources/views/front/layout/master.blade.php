@@ -36,9 +36,9 @@
 <body>
 @include('front.layout.header')
 <div>
-
     @yield('content')
 </div>
+@include('front.layout.footer')
 @yield('script')
 </body>
 </html>

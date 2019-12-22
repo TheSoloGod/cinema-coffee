@@ -1,0 +1,39 @@
+.footer {
+    color: #de903c;
+}
+
+.main-footer {
+    position: relative;
+    padding: 80px 0 50px 0;
+    background-color: #131a20;
+    background-image: url('https://cafephim.vn/wp-content/themes/the-landscaper/assets/images/leafs_dark.png');
+}
+
+.scrollToTop {
+    display: none;
+}
+@media (min-width: 992px) {
+    .scrollToTop {
+        opacity: 0;
+        visibility: hidden;
+        position: fixed;
+        display: block;
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        line-height: 48px;
+        font-size: 20px;
+        text-align: center;
+        color: #ffffff;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+}
+.scrollToTop.visible {
+    opacity: 1;
+    visibility: visible;
+}
+.scrollToTop:hover, .scrollToTop:focus {
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.3);
+}
