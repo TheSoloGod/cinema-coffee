@@ -4,18 +4,18 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
+            <div class="card shadow-body" style="border-color: darkorange">
+                <div class="card-header" style="background-color: darkorange; color: white">{{ __('Xác nhận địa chỉ Email') }}</div>
 
                 <div class="card-body">
                     @if (session('resent'))
                         <div class="alert alert-success" role="alert">
-                            {{ __('A fresh verification link has been sent to your email address.') }}
+                            {{ __('Link xác nhận đã được gửi đến Email của bạn.') }}
                         </div>
                     @endif
 
-                    {{ __('Before proceeding, please check your email for a verification link.') }}
-                    {{ __('If you did not receive the email') }}, <a href="{{ route('verification.resend') }}">{{ __('click here to request another') }}</a>.
+                    {{ __('Trước khi đăng nhập, vui lòng kiểm tra email của bạn để xác nhận thông tin') }}
+                    {{ __('Nếu bạn không nhận được email') }}, <a href="{{ route('verification.resend') }}" style="color: darkorange">{{ __('Nhấn vào đây để gửi lại') }}</a>.
                 </div>
             </div>
         </div>
