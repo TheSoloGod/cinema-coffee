@@ -27,5 +27,5 @@ Route::get('/admin', function () {
 });
 
 Route::get('/test', function () {
-    return view('front.room-order.room-order');
+    return view('front.menu.menu-total');
 });
