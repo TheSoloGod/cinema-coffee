@@ -27,5 +27,5 @@ Route::get('/admin', function () {
 });
 
 Route::get('/test', function () {
-    return view('front.menu.menu-total');
+    return view('front.movie.movie-search');
 });
