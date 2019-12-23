@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\MovieCategoryService\MovieCategoryServiceInterface;
 use App\Services\MovieService\MovieServiceInterface;
 use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
     protected $movieService;
+    protected $movieCategoryService;
 
-    public function __construct(MovieServiceInterface $movieService)
+    public function __construct(MovieServiceInterface $movieService, MovieCategoryServiceInterface $movieCategoryService)
     {
         $this->movieService = $movieService;
+        $this->movieCategoryService = $movieCategoryService;
     }
 
     /**
@@ -21,7 +24,8 @@ class MovieController extends Controller
      */
     public function index()
     {
-        //
+        $movies = $this->movieService->getAll();
+        return view('back.movie.index', compact('movies'));
     }
 
     /**
@@ -31,7 +35,8 @@ class MovieController extends Controller
      */
     public function create()
     {
-        //
+        $movieCategories = $this->movieCategoryService->getAll();
+        return view('back.movie.create', compact('movieCategories'));
     }
 
     /**
@@ -42,7 +47,8 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->movieService->store($request->all());
+        return redirect()->route('movies.create');
     }
 
     /**
@@ -64,7 +70,9 @@ class MovieController extends Controller
      */
     public function edit($id)
     {
-        //
+        $movie = $this->movieService->findById($id);
+        $movieCategories = $this->movieCategoryService->getAll();
+        return view('back.movie.edit', compact('movie', 'movieCategories'));
     }
 
     /**
@@ -76,7 +84,8 @@ class MovieController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->movieService->update($request->all(), $id);
+        return redirect()->route('movies.index');
     }
 
     /**
@@ -87,6 +96,7 @@ class MovieController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->movieService->destroy($id);
+        return redirect()->route('movies.index');
     }
 }

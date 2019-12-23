@@ -29,5 +29,7 @@ Route::get('/admin', function () {
 Route::group(['prefix' => 'admin'], function () {
     Route::resource('agencies', 'AgencyController');
     Route::resource('extensions', 'ExtensionController');
+    Route::resource('movies', 'MovieController');
+    Route::resource('movie-categories', 'MovieCategoryController');
 });
 

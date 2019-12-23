@@ -21,7 +21,8 @@ class MovieCategoryController extends Controller
      */
     public function index()
     {
-        //
+        $movieCategories = $this->movieCategoryService->getAll();
+        return view('back.movie-category.index', compact('movieCategories'));
     }
 
     /**
@@ -31,7 +32,7 @@ class MovieCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.movie-category.create');
     }
 
     /**
@@ -42,7 +43,8 @@ class MovieCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->movieCategoryService->store($request->all());
+        return redirect()->route('movie-categories.index');
     }
 
     /**
@@ -64,7 +66,8 @@ class MovieCategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $movieCategory = $this->movieCategoryService->findById($id);
+        return view('back.movie-category.edit', compact('movieCategory'));
     }
 
     /**
@@ -76,7 +79,8 @@ class MovieCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->movieCategoryService->update($request->all(), $id);
+        return redirect()->route('movie-categories.index');
     }
 
     /**
@@ -87,6 +91,7 @@ class MovieCategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->movieCategoryService->destroy($id);
+        return redirect()->route('movie-categories.index');
     }
 }
