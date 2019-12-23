@@ -52,6 +52,4 @@ Route::group(['prefix' => 'admin'], function () {
 
 
 // route test
-Route::get('/test', function () {
-    return view('front.news.hiring');
-});
+Route::get('/test/{id}', 'AgencyController@getContentAgencyById');

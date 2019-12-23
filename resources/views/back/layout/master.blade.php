@@ -35,12 +35,20 @@
 
 </head>
 <body>
-
-{{--@include('back.layout.side-bar')--}}
 {{--@include('back.layout.header')--}}
-<div class="container pt-3">
-    @yield('content')
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2">
+            @include('back.layout.side-bar')
+        </div>
+        <div class="col-10" style="margin-left: 250px;">
+            <div class="container pt-5">
+                @yield('content')
+            </div>
+        </div>
+    </div>
 </div>
+
 @include('back.layout.footer')
 @yield('script')
 </body>
