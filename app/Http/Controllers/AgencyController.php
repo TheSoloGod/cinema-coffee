@@ -94,4 +94,10 @@ class AgencyController extends Controller
         $this->agencyService->destroy($id);
         return redirect()->route('agencies.index');
     }
+
+    public function getContentAgencyById($id)
+    {
+        $agencyContent = $this->agencyService->getContentAgencyById($id);
+        return view('test', compact('agencyContent'));
+    }
 }

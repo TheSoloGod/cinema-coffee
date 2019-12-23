@@ -13,7 +13,9 @@
         </div>
     </div>
 
-    <div class="container mt-4 mb-4">
+    <div class="">
+        <img src="{{asset('front/side-page/order-bg.jpg')}}" alt="" class="w-100" style="position: absolute; height: 1000px">
+    <div class="container pt-5" style="position: relative">
         <div class="row">
             <div class="col-6">
                 <div class="shadow-body">
@@ -22,7 +24,7 @@
                 </div>
             </div>
             <div class="col-6">
-                <div class="shadow-body p-4">
+                <div class="shadow-body p-4" style="background-color: white">
                     <div class="text-center pb-5">
                         <div class="subtitle-body">
                             ĐẶT PHÒNG ONLINE
@@ -64,5 +66,6 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
     @endsection
