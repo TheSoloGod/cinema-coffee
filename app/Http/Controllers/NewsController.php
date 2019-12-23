@@ -21,7 +21,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
+        $newses = $this->newsService->getAll();
+        return view('back.news.index', compact('newses'));
     }
 
     /**
@@ -31,7 +32,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.news.create');
     }
 
     /**
@@ -42,7 +43,8 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->newsService->store($request->all());
+        return redirect()->route('newses.create');
     }
 
     /**
@@ -64,7 +66,8 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $news = $this->newsService->findById($id);
+        return view('back.news.edit', compact('news'));
     }
 
     /**
@@ -76,7 +79,8 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->newsService->update($request->all(), $id);
+        return redirect()->route('newses.index');
     }
 
     /**
@@ -87,6 +91,7 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->newsService->destroy($id);
+        return redirect()->route('newses.index');
     }
 }

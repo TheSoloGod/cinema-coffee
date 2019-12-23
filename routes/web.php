@@ -47,6 +47,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('extensions', 'ExtensionController');
     Route::resource('movies', 'MovieController');
     Route::resource('movie-categories', 'MovieCategoryController');
+    Route::resource('newses', 'NewsController');
 });
 
 
