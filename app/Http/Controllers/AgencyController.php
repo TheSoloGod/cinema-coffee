@@ -21,7 +21,8 @@ class AgencyController extends Controller
      */
     public function index()
     {
-        //
+        $agencies = $this->agencyService->getAll();
+        return view('back.agency.index', compact('agencies'));
     }
 
     /**
@@ -31,7 +32,7 @@ class AgencyController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.agency.create');
     }
 
     /**
@@ -42,7 +43,8 @@ class AgencyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->agencyService->store($request->all());
+        return redirect()->route('agencies.create');
     }
 
     /**
@@ -64,7 +66,8 @@ class AgencyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $agency = $this->agencyService->findById($id);
+        return view('back.agency.edit', compact('agency'));
     }
 
     /**
@@ -76,7 +79,8 @@ class AgencyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->agencyService->update($request->all(), $id);
+        return redirect()->route('agencies.index');
     }
 
     /**
@@ -87,6 +91,7 @@ class AgencyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->agencyService->destroy($id);
+        return redirect()->route('agencies.index');
     }
 }

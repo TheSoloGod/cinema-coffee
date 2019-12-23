@@ -14,4 +14,38 @@ class MovieService implements MovieServiceInterface
     {
         $this->movieRepository = $movieRepository;
     }
+
+    public function getAll() {
+        return $this->movieRepository->getAll();
+    }
+
+    public function store($data) {
+        $fileImage = $data['image'];
+        $fileImage->move('upload/images', $fileImage->getClientOriginalName());
+        $data['image'] = $fileImage->getClientOriginalName();
+        $fileTrailer = $data['trailer'];
+        $fileTrailer->move('upload/images', $fileTrailer->getClientOriginalName());
+        $data['trailer'] = $fileTrailer->getClientOriginalName();
+        $this->movieRepository->create($data);
+    }
+
+    public function update($data, $id) {
+        $currentMovie = $this->movieRepository->getById($id);
+        $fileImage = $data['image'];
+        $fileImage->move('upload/images', $fileImage->getClientOriginalName());
+        $data['image'] = $fileImage->getClientOriginalName();
+        $fileTrailer = $data['trailer'];
+        $fileTrailer->move('upload/images', $fileTrailer->getClientOriginalName());
+        $data['trailer'] = $fileTrailer->getClientOriginalName();
+        $this->movieRepository->update($data, $currentMovie);
+    }
+
+    public function destroy($id) {
+        $movie = $this->movieRepository->getById($id);
+        $this->movieRepository->delete($movie);
+    }
+
+    public function findById($id) {
+        return $this->movieRepository->getById($id);
+    }
 }

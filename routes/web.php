@@ -13,8 +13,6 @@
 
 Auth::routes();
 
-
-// route front for user
 Route::get('/', function () {return view('front.home.home');})->name('home');
 
 Route::get('/agency', function () {return view('front.agency.agency-total');})->name('agency');
@@ -43,6 +41,14 @@ Route::get('/room-price', function () {return view('front.room-price.room-price-
 Route::get('/admin', function () {
     return view('back.home.home');
 });
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::resource('agencies', 'AgencyController');
+    Route::resource('extensions', 'ExtensionController');
+    Route::resource('movies', 'MovieController');
+    Route::resource('movie-categories', 'MovieCategoryController');
+});
+
 
 
 // route test

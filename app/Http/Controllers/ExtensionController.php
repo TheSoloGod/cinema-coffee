@@ -21,7 +21,8 @@ class ExtensionController extends Controller
      */
     public function index()
     {
-        //
+        $extensions = $this->extensionService->getAll();
+        return view('back.extension.index', compact('extensions'));
     }
 
     /**
@@ -31,7 +32,7 @@ class ExtensionController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.extension.create');
     }
 
     /**
@@ -42,7 +43,8 @@ class ExtensionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->extensionService->store($request->all());
+        return redirect()->route('agencies.create');
     }
 
     /**
@@ -64,7 +66,8 @@ class ExtensionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $extension = $this->extensionService->findById($id);
+        return view('back.extension.edit', compact('extension'));
     }
 
     /**
@@ -76,7 +79,8 @@ class ExtensionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->extensionService->update($request->all(), $id);
+        return redirect()->route('extensions.index');
     }
 
     /**
@@ -87,6 +91,7 @@ class ExtensionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->extensionService->destroy($id);
+        return redirect()->route('extensions.index');
     }
 }
