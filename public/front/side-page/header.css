@@ -1,0 +1,12 @@
+.paper-header {
+    text-align: left;
+    background-color: #f2f2f2;
+    background-image: url('https://cafephim.vn/wp-content/themes/the-landscaper/assets/images/leafs.png');
+    padding-top: 70px;
+    padding-bottom: 80px;
+}
+
+.header-title {
+    font-weight: bold;
+
+}
