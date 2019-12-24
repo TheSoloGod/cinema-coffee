@@ -58,7 +58,7 @@
                                 </div>
                                 <div class="col-12 mb-3">
                                     <label>Ghi chú</label>
-                                    <textarea class="form-control" rows="7"
+                                    <textarea name="note" class="form-control" rows="7"
                                               placeholder="Để lại lời nhắn cho chúng tôi"></textarea>
                                 </div>
                             </div>
