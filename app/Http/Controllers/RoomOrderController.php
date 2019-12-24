@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\AgencyService\AgencyServiceInterface;
 use App\Services\RoomOrderService\RoomOrderServiceInterface;
 use Illuminate\Http\Request;
 
 class RoomOrderController extends Controller
 {
     protected $roomOrderService;
+    protected $agencyService;
 
-    public function __construct(RoomOrderServiceInterface $roomOrderService)
+    public function __construct(RoomOrderServiceInterface $roomOrderService, AgencyServiceInterface $agencyService)
     {
         $this->roomOrderService = $roomOrderService;
+        $this->agencyService = $agencyService;
     }
 
     /**
@@ -21,7 +24,8 @@ class RoomOrderController extends Controller
      */
     public function index()
     {
-        //
+        $roomOrders = $this->roomOrderService->getAll();
+        return view('back.room-order.index', compact('roomOrders'));
     }
 
     /**
@@ -31,7 +35,8 @@ class RoomOrderController extends Controller
      */
     public function create()
     {
-        //
+        $agencies = $this->agencyService->getAll();
+        return view('front.room-order.room-order', compact('agencies'));
     }
 
     /**
@@ -42,7 +47,8 @@ class RoomOrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->roomOrderService->store($request->all());
+        return redirect()->route('room.order');
     }
 
     /**
@@ -53,7 +59,8 @@ class RoomOrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $roomOrder = $this->roomOrderService->findById($id);
+        return view('back.room-order.show', compact('roomOrder'));
     }
 
     /**
@@ -87,6 +94,7 @@ class RoomOrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->roomOrderService->destroy($id);
+        return redirect()->route('room-orders.index');
     }
 }

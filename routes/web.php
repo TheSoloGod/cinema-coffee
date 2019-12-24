@@ -32,7 +32,8 @@ Route::get('/news/detail', function () {return view('front.news.news-detail');})
 Route::get('/news/promo', function () {return view('front.news.promo');})->name('promo');
 Route::get('/news/hiring', function () {return view('front.news.hiring');})->name('hiring');
 
-Route::get('/room-order', function () {return view('front.room-order.room-order');})->name('room.order');
+Route::get('/room-order', 'RoomOrderController@create')->name('room.order');
+Route::post('/room-order', 'RoomOrderController@store')->name('room.order.store');
 
 Route::get('/room-price', function () {return view('front.room-price.room-price-total');})->name('room.price');
 
@@ -47,6 +48,12 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('extensions', 'ExtensionController');
     Route::resource('movies', 'MovieController');
     Route::resource('movie-categories', 'MovieCategoryController');
+    Route::resource('newses', 'NewsController');
+    Route::resource('menus', 'MenuController');
+    Route::resource('room-prices', 'RoomPriceController');
+    Route::resource('room-orders', 'RoomOrderController')->only([
+        'index', 'show', 'destroy'
+    ]);
 });
 
 

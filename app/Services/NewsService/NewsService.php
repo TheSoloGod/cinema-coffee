@@ -14,4 +14,32 @@ class NewsService implements NewsServiceInterface
     {
         $this->newsRepository = $newsRepository;
     }
+
+    public function getAll() {
+        return $this->newsRepository->getAll();
+    }
+
+    public function store($data) {
+        $fileImage = $data['image'];
+        $fileImage->move('upload/images', $fileImage->getClientOriginalName());
+        $data['image'] = $fileImage->getClientOriginalName();
+        $this->newsRepository->create($data);
+    }
+
+    public function update($data, $id) {
+        $currentNews = $this->newsRepository->getById($id);
+        $fileImage = $data['image'];
+        $fileImage->move('upload/images', $fileImage->getClientOriginalName());
+        $data['image'] = $fileImage->getClientOriginalName();
+        $this->newsRepository->update($data, $currentNews);
+    }
+
+    public function destroy($id) {
+        $news = $this->newsRepository->getById($id);
+        $this->newsRepository->delete($news);
+    }
+
+    public function findById($id) {
+        return $this->newsRepository->getById($id);
+    }
 }
