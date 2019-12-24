@@ -21,7 +21,8 @@ class RoomPriceController extends Controller
      */
     public function index()
     {
-        //
+        $roomPrices = $this->roomPriceService->getAll();
+        return view('back.room-price.index', compact('roomPrices'));
     }
 
     /**
@@ -31,7 +32,7 @@ class RoomPriceController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.room-price.create');
     }
 
     /**
@@ -42,7 +43,8 @@ class RoomPriceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->roomPriceService->store($request->all());
+        return redirect()->route('room-prices.create');
     }
 
     /**
@@ -64,7 +66,8 @@ class RoomPriceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $roomPrice = $this->roomPriceService->findById($id);
+        return view('back.room-price.edit', compact('roomPrice'));
     }
 
     /**
@@ -76,7 +79,8 @@ class RoomPriceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->roomPriceService->update($request->all(), $id);
+        return redirect()->route('room-prices.index');
     }
 
     /**
@@ -87,6 +91,7 @@ class RoomPriceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->roomPriceService->destroy($id);
+        return redirect()->route('room-prices.index');
     }
 }
