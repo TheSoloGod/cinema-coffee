@@ -18,7 +18,7 @@
             <div class="col-6">
                 <div class="shadow-body">
                     <img src="https://static.ladipage.net/5b8dea1c8bdb4374b283eacb/cccccccc-01-1559601568.jpg" alt=""
-                    class="w-100">
+                         class="w-100">
                 </div>
             </div>
             <div class="col-6">
@@ -31,30 +31,31 @@
                             Chúng tôi sẽ gọi lại ngay khi nhận được thông tin!
                         </p>
                     </div>
-                    <form>
+                    <form method="post" action="{{route('room.order.store')}}">
+                        @csrf
                         <div class="form-row">
                             <div class="col-12 mb-3">
                                 <label>Họ và tên</label>
-                                <input type="text" class="form-control"
+                                <input name="name" type="text" class="form-control"
                                        placeholder="Vui lòng điền đầy đủ họ tên" required>
                             </div>
                             <div class="col-12 mb-3">
                                 <label>Số điện thoại</label>
-                                <input type="text" class="form-control"
+                                <input name="phone" type="text" class="form-control"
                                        placeholder="Vui lòng nhập đúng số điện thoại của bạn" required>
                             </div>
                             <div class="col-12 mb-3">
                                 <label>Cơ sở</label>
-                                <select class="custom-select my-1 mr-sm-2">
-                                    <option selected>Vui lòng chọn cơ sở</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                <select name="agency_id" class="custom-select my-1 mr-sm-2">
+                                    @foreach($agencies as $agency)
+                                        <option value="{{$agency->id}}">{{$agency->name}}</option>\
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-12 mb-3">
                                 <label>Ghi chú</label>
-                                <textarea class="form-control" rows="7" placeholder="Để lại lời nhắn cho chúng tôi"></textarea>
+                                <textarea name="note" class="form-control" rows="7"
+                                          placeholder="Để lại lời nhắn cho chúng tôi"></textarea>
                             </div>
                         </div>
                         <div class="text-center pt-5 pb-5">
@@ -65,4 +66,4 @@
             </div>
         </div>
     </div>
-    @endsection
+@endsection
