@@ -14,4 +14,21 @@ class RoomOrderService implements RoomOrderServiceInterface
     {
         $this->roomOrderRepository = $roomOrderRepository;
     }
+
+    public function getAll() {
+        return $this->roomOrderRepository->getAll();
+    }
+
+    public function store($data) {
+        $this->roomOrderRepository->create($data);
+    }
+
+    public function destroy($id) {
+        $roomOrder = $this->roomOrderRepository->getById($id);
+        $this->roomOrderRepository->delete($roomOrder);
+    }
+
+    public function findById($id) {
+        return $this->roomOrderRepository->getById($id);
+    }
 }

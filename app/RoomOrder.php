@@ -9,4 +9,8 @@ class RoomOrder extends Model
     protected $table = 'room_orders';
 
     protected $guarded = [];
+
+    public function agency() {
+        return $this->belongsTo('App\Agency');
+    }
 }
