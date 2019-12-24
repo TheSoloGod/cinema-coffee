@@ -51,6 +51,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('movies', 'MovieController');
     Route::resource('movie-categories', 'MovieCategoryController');
     Route::resource('newses', 'NewsController');
+    Route::resource('menus', 'MenuController');
+    Route::resource('room-prices', 'RoomPriceController');
     Route::resource('room-orders', 'RoomOrderController')->only([
         'index', 'show', 'destroy'
     ]);

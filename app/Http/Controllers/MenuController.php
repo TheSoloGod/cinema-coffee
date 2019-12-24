@@ -21,7 +21,8 @@ class MenuController extends Controller
      */
     public function index()
     {
-        //
+        $menus = $this->menuService->getAll();
+        return view('back.menu.index', compact('menus'));
     }
 
     /**
@@ -31,7 +32,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.menu.create');
     }
 
     /**
@@ -42,7 +43,8 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->menuService->store($request->all());
+        return redirect()->route('menus.index');
     }
 
     /**
@@ -64,7 +66,8 @@ class MenuController extends Controller
      */
     public function edit($id)
     {
-        //
+        $menu = $this->menuService->findById($id);
+        return view('back.extension.edit', compact('menu'));
     }
 
     /**
@@ -76,7 +79,8 @@ class MenuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->menuService->update($request->all(), $id);
+        return redirect()->route('menus.index');
     }
 
     /**
@@ -87,7 +91,8 @@ class MenuController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->menuService->destroy($id);
+        return redirect()->route('menus.index');
     }
 
     public function getAllMenus()
