@@ -89,4 +89,10 @@ class UserController extends Controller
     {
         //
     }
+
+    public function getUserById($id)
+    {
+        $user = $this->userService->findById($id);
+        return view('front.user.user-detail', compact('user'));
+    }
 }
