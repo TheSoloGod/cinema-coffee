@@ -89,4 +89,10 @@ class RoomPriceController extends Controller
     {
         //
     }
+
+    public function getAllMenus()
+    {
+        $menus = $this->roomPriceService->getAll();
+        return view('front.room-price.room-price-total', compact('menus'));
+    }
 }

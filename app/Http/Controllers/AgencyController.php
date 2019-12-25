@@ -95,9 +95,15 @@ class AgencyController extends Controller
         return redirect()->route('agencies.index');
     }
 
-    public function getContentAgencyById($id)
+    public function getAllAgencies()
     {
-        $agencyContent = $this->agencyService->getContentAgencyById($id);
-        return view('test', compact('agencyContent'));
+        $agencies = $this->agencyService->getAll();
+        return view('front.agency.agency-total', compact('agencies'));
+    }
+
+    public function getAgencyDetailById($id)
+    {
+        $agency = $this->agencyService->findById($id);
+        return view('front.agency.agency-detail', compact('agency'));
     }
 }

@@ -42,7 +42,7 @@
             @include('back.layout.side-bar')
         </div>
         <div class="col-10" style="margin-left: 250px;">
-            <div class="container pt-5">
+            <div class="container-fluid mt-5 mb-5" style="width: 90%">
                 @yield('content')
             </div>
         </div>

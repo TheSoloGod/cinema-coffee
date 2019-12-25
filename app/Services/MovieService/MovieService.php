@@ -48,4 +48,23 @@ class MovieService implements MovieServiceInterface
     public function findById($id) {
         return $this->movieRepository->getById($id);
     }
+
+    public function getRecommendMovies()
+    {
+        $recommendMovies = $this->movieRepository->getRecommendMovies();
+        return $recommendMovies;
+    }
+
+    public function getNewMovies()
+    {
+        $newMovies = $this->movieRepository->getNewMovies();
+        return $newMovies;
+    }
+
+    public function searchMovie($request)
+    {
+        $keyWord = $request->key_word;
+        $movies = $this->movieRepository->searchMovie($keyWord);
+        return $movies;
+    }
 }

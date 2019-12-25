@@ -36,6 +36,8 @@ Route::get('/room-order', function () {return view('front.room-order.room-order'
 
 Route::get('/room-price', function () {return view('front.room-price.room-price-total');})->name('room.price');
 
+Route::get('/profile', function () {return view('front.user.user-detail');})->name('user.profile');
+
 
 // route back for admin
 Route::get('/admin', function () {
@@ -52,4 +54,4 @@ Route::group(['prefix' => 'admin'], function () {
 
 
 // route test
-Route::get('/test/{id}', 'AgencyController@getContentAgencyById');
+//Route::get('/test/{id}', 'AgencyController@getContentAgencyById');

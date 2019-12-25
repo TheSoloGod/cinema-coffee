@@ -89,4 +89,16 @@ class NewsController extends Controller
     {
         //
     }
+
+    public function getAllNews()
+    {
+        $news = $this->newsService->getAll();
+        return view('front.news.news-total', compact('news'));
+    }
+
+    public function getNewsById($id)
+    {
+        $news = $this->newsService->findById($id);
+        return view('front.news.news-detail', compact('news'));
+    }
 }

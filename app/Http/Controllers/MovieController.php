@@ -99,4 +99,23 @@ class MovieController extends Controller
         $this->movieService->destroy($id);
         return redirect()->route('movies.index');
     }
+
+    public function getMoviesHome()
+    {
+        $recommendMovies = $this->movieService->getRecommendMovies();
+        $newMovies = $this->movieService->getNewMovies();
+        return view('front.movie.movie-total', compact('recommendMovies', 'newMovies'));
+    }
+
+    public function getMovieById($id)
+    {
+        $movie = $this->movieService->findById($id)   ;
+        return view('front.movie.movie-detail', compact('movie'));
+    }
+
+    public function searchMovie(Request $request)
+    {
+        $movies = $this->movieService->searchMovie($request);
+        return view('front.movie.movie-search', compact('movies'));
+    }
 }

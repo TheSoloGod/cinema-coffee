@@ -89,4 +89,10 @@ class MenuController extends Controller
     {
         //
     }
+
+    public function getAllMenus()
+    {
+        $menus = $this->menuService->getAll();
+        return view('front.menu.menu-total', compact('menus'));
+    }
 }
