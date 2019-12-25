@@ -14,9 +14,4 @@ class MenuService implements MenuServiceInterface
     {
         $this->menuRepository = $menuRepository;
     }
-
-    public function getAll()
-    {
-        return $this->menuRepository->getAll();
-    }
 }
