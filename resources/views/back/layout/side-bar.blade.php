@@ -5,33 +5,37 @@
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-                <a href="#">
+                <a href="{{route('agencies.index')}}">
                     Cinema-coffee
                 </a>
             </li>
             <li>
-                <a href="#">Cơ sở</a>
+                <a href="{{route('agencies.index')}}">Cơ sở</a>
             </li>
             <li>
-                <a href="#">Dịch vụ</a>
+                <a href="{{route('extensions.index')}}">Dịch vụ</a>
             </li>
             <li>
-                <a href="#">Giá phòng</a>
+                <a href="{{route('room-prices.index')}}">Giá phòng</a>
             </li>
             <li>
-                <a href="#">Đặt phòng</a>
+                <a href="{{route('room-orders.index')}}">Đặt phòng</a>
             </li>
             <li>
-                <a href="#">Thực đơn</a>
+                <a href="{{route('menus.index')}}">Thực đơn</a>
             </li>
             <li>
-                <a href="#">Phim</a>
+                <a href="{{route('movies.index')}}">Phim</a>
             </li>
             <li>
-                <a href="#">Tin tức</a>
+                <a href="{{route('newses.index')}}">Tin tức</a>
             </li>
             <li>
-                <a href="#">Đăng xuất</a>
+                <a href="{{route('logout')}}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">Đăng xuất</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
             </li>
         </ul>
     </div>

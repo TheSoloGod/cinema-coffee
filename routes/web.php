@@ -16,7 +16,7 @@ Auth::routes();
 Route::get('/', function () {return view('front.home.home');})->name('home');
 
 Route::get('/agency', function () {return view('front.agency.agency-total');})->name('agency');
-Route::get('/agency/detail', function () {return view('front.agency.agency-detail');})->name('agency.detail');
+Route::get('/agency/detail', 'AgencyController@show')->name('agency.detail');
 
 Route::get('/extension', function () {return view('front.extension.extension-total');})->name('extension');
 Route::get('/extension/detail', function () {return view('front.extension.extension-detail');})->name('extension.detail');
@@ -41,9 +41,7 @@ Route::get('/profile', function () {return view('front.user.user-detail');})->na
 
 
 // route back for admin
-Route::get('/admin', function () {
-    return view('back.home.home');
-});
+Route::get('/admin', 'AgencyController@index');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::resource('agencies', 'AgencyController');

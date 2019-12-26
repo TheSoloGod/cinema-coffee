@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-12">
                     <h1 class="header-title">
-                        Cinema Coffee Mỹ Đình
+                        {{$agency->name}}
                     </h1>
                 </div>
             </div>
