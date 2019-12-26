@@ -16,14 +16,20 @@
                 <td><img width="150px" src="{{asset("upload/images/$extension->image")}}"></td>
                 <td>{{$extension->name}}</td>
                 <td>
-                    <a class="btn btn-warning" href="{{route('extensions.edit', $extension->id)}}">Sửa</a>
-                    <form method="post" action="{{route('extensions.destroy', $extension->id)}}">
-                        @csrf
-                        @method('delete')
-                        <button class="btn btn-danger" type="submit"
-                                onclick="return confirm('Bạn có chắc chắn muốn xóa')">Xóa
-                        </button>
-                    </form>
+                    <div class="row">
+                        <div class="col-6">
+                            <a class="btn btn-warning float-right" href="{{route('extensions.edit', $extension->id)}}">Sửa</a>
+                        </div>
+                        <div class="col-6">
+                            <form method="post" action="{{route('extensions.destroy', $extension->id)}}">
+                                @csrf
+                                @method('delete')
+                                <button class="btn btn-danger" type="submit"
+                                        onclick="return confirm('Bạn có chắc chắn muốn xóa')">Xóa
+                                </button>
+                            </form>
+                        </div>
+                    </div>
                 </td>
             </tr>
         @endforeach

@@ -15,11 +15,14 @@ Auth::routes();
 
 Route::get('/', function () {return view('front.home.home');})->name('home');
 
-Route::get('/agency', function () {return view('front.agency.agency-total');})->name('agency');
-Route::get('/agency/detail', 'AgencyController@show')->name('agency.detail');
+Route::get('/agency', 'AgencyController@getAllAgencies')->name('agency');
+Route::get('/agency/detail/{id}', 'AgencyController@getAgencyDetailById')->name('agency.detail');
 
-Route::get('/extension', function () {return view('front.extension.extension-total');})->name('extension');
-Route::get('/extension/detail', function () {return view('front.extension.extension-detail');})->name('extension.detail');
+//Route::get('/extension', function () {return view('front.extension.extension-total');})->name('extension');
+//Route::get('/extension/detail', function () {return view('front.extension.extension-detail');})->name('extension.detail');
+
+Route::get('/extension', 'ExtensionController@getAllExtensions')->name('extension');
+Route::get('/extension/detail/{id}', 'ExtensionController@getExtensionById')->name('extension.detail');
 
 Route::get('/movie', function () {return view('front.movie.movie-total');})->name('movie');
 Route::get('/movie/detail', function () {return view('front.movie.movie-detail');})->name('movie.detail');

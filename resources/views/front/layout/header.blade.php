@@ -24,14 +24,14 @@
                         </a>
                         <div class="dropdown-menu bg-orange mt-4" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{route('agency')}}">Tất cả cơ sở</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('agency.detail')}}">Xã Đàn</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('agency.detail')}}">Mỹ Đình</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('agency.detail')}}">Hà Đông</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('agency.detail')}}">Long Biên</a>
+{{--                            <div class="dropdown-divider"></div>--}}
+{{--                            <a class="dropdown-item" href="{{route('agency.detail')}}">Xã Đàn</a>--}}
+{{--                            <div class="dropdown-divider"></div>--}}
+{{--                            <a class="dropdown-item" href="{{route('agency.detail')}}">Mỹ Đình</a>--}}
+{{--                            <div class="dropdown-divider"></div>--}}
+{{--                            <a class="dropdown-item" href="{{route('agency.detail')}}">Hà Đông</a>--}}
+{{--                            <div class="dropdown-divider"></div>--}}
+{{--                            <a class="dropdown-item" href="{{route('agency.detail')}}">Long Biên</a>--}}
                         </div>
                     </li>
                     <li class="nav-item dropdown active">
@@ -41,18 +41,18 @@
                         </a>
                         <div class="dropdown-menu bg-orange mt-4" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{route('extension')}}">Tất cả dịch vụ</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('extension.detail')}}">Cafe phim phòng riêng</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('extension.detail')}}">Xem phim gia đình</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('extension.detail')}}">Tổ chức sự kiện lãng mạn</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('extension.detail')}}">Tổ chức sinh nhật</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('extension.detail')}}">Tổ chức Offline</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('extension.detail')}}">Tổ chức hội thảo, học nhóm</a>
+{{--                            <div class="dropdown-divider"></div>--}}
+{{--                            <a class="dropdown-item" href="{{route('extension.detail')}}">Cafe phim phòng riêng</a>--}}
+{{--                            <div class="dropdown-divider"></div>--}}
+{{--                            <a class="dropdown-item" href="{{route('extension.detail')}}">Xem phim gia đình</a>--}}
+{{--                            <div class="dropdown-divider"></div>--}}
+{{--                            <a class="dropdown-item" href="{{route('extension.detail')}}">Tổ chức sự kiện lãng mạn</a>--}}
+{{--                            <div class="dropdown-divider"></div>--}}
+{{--                            <a class="dropdown-item" href="{{route('extension.detail')}}">Tổ chức sinh nhật</a>--}}
+{{--                            <div class="dropdown-divider"></div>--}}
+{{--                            <a class="dropdown-item" href="{{route('extension.detail')}}">Tổ chức Offline</a>--}}
+{{--                            <div class="dropdown-divider"></div>--}}
+{{--                            <a class="dropdown-item" href="{{route('extension.detail')}}">Tổ chức hội thảo, học nhóm</a>--}}
                         </div>
                     </li>
                     <li class="nav-item dropdown active">
