@@ -21,7 +21,7 @@ class CreateRoomOrdersTable extends Migration
             $table->date('order_date')->nullable();
             $table->string('note');
             $table->timestamps();
-            $table->foreign('agency_id')->references('id')->on('agencies');
+            $table->foreign('agency_id')->references('id')->on('agencies')->onDelete('cascade');
         });
     }
 
