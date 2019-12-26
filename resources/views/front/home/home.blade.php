@@ -81,33 +81,25 @@
                     <div class="col-6 mt-4">
                         <div class="shadow-body">
                             <img src="https://images02.foap.com/images/0bd9cf71-6894-44d9-89e5-b528b606e191/central-cafe-cinema.jpeg?filename=w1280&dw=960"
-                                 alt=""
-                                 style="width: 100%; padding: 5%"
-                            >
+                                 alt="" class="home-agency">
                         </div>
                     </div>
                     <div class="col-6 mt-4">
                         <div class="shadow-body">
                             <img src="https://images02.foap.com/images/0bd9cf71-6894-44d9-89e5-b528b606e191/central-cafe-cinema.jpeg?filename=w1280&dw=960"
-                                 alt=""
-                                 style="width: 100%; padding: 5%"
-                            >
+                                 alt="" class="home-agency">
                         </div>
                     </div>
                     <div class="col-6 mt-4">
                         <div class="shadow-body">
                             <img src="https://images02.foap.com/images/0bd9cf71-6894-44d9-89e5-b528b606e191/central-cafe-cinema.jpeg?filename=w1280&dw=960"
-                                 alt=""
-                                 style="width: 100%; padding: 5%"
-                            >
+                                 alt="" class="home-agency">
                         </div>
                     </div>
                     <div class="col-6 mt-4">
                         <div class="shadow-body">
                             <img src="https://images02.foap.com/images/0bd9cf71-6894-44d9-89e5-b528b606e191/central-cafe-cinema.jpeg?filename=w1280&dw=960"
-                                 alt=""
-                                 style="width: 100%; padding: 5%"
-                            >
+                                 alt="" class="home-agency">
                         </div>
                     </div>
                 </div>

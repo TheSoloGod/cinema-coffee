@@ -7,13 +7,13 @@
                 <div class="col-xs-12 col-md-4">
                     <div class="widget w-footer widget_black_studio_tinymce"><h6 class="widget-title"><span
                                 class="light">Cinema</span> Coffee</h6>
-                        <div class="textwidget"><p><strong>Cafe phim&nbsp;Hà Nội</strong></p>
+                        <div class="textwidget"><p><strong>Cinema Coffee&nbsp;Hà Nội</strong></p>
                             <p><span class="subtitle">136 Yên Lãng (Thái Thịnh 2) - Đống Đa - Hà Nội&nbsp;</span></p>
-                            <p class="title"><strong>Cafe phim Đống Đa</strong></p>
+                            <p class="title"><strong>Cinema Coffee Đống Đa</strong></p>
                             <p><span class="subtitle">166 ven Hồ Đắc Di - Đống Đa - Hà Nội</span></p>
-                            <p class="title"><strong>Cafe phim Chùa Láng</strong></p>
+                            <p class="title"><strong>Cinema Coffee Chùa Láng</strong></p>
                             <p>Số 61, Ngõ 82 Chùa Láng - Đống Đa - Hà Nội</p>
-                            <p class="title"><strong>Cafe phim&nbsp;Hà Đông</strong></p>
+                            <p class="title"><strong>Cinema Coffee Hà Đông</strong></p>
                             <p>Số 30 - An Hòa&nbsp;- Hà Đông - Hà Nội</p>
                             <p><strong>Hotline 1: <a href="tel:02473033088">036 586 9993</a></strong></p>
                         </div>

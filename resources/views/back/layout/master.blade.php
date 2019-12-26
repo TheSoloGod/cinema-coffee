@@ -30,16 +30,25 @@
 
     <!-- SCRIPT -->
     <script src="{{ asset('front/home/home.js') }}"></script>
+    <script type="text/javascript" src="{{asset('js/ckeditor/ckeditor.js')}}"></script>
 
 
 </head>
 <body>
-
-@include('back.layout.side-bar')
 {{--@include('back.layout.header')--}}
-<div>
-    @yield('content')
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2">
+            @include('back.layout.side-bar')
+        </div>
+        <div class="col-10" style="margin-left: 250px;">
+            <div class="container-fluid mt-5 mb-5" style="width: 90%">
+                @yield('content')
+            </div>
+        </div>
+    </div>
 </div>
+
 @include('back.layout.footer')
 @yield('script')
 </body>

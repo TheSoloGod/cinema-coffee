@@ -13,15 +13,13 @@
 
 Auth::routes();
 
-
-// route front for user
 Route::get('/', function () {return view('front.home.home');})->name('home');
 
-Route::get('/agency', function () {return view('front.agency.agency-total');})->name('agency');
-Route::get('/agency/detail', function () {return view('front.agency.agency-detail');})->name('agency.detail');
+Route::get('/agency', 'AgencyController@getAllAgencies')->name('agency');
+Route::get('/agency/detail/{id}', 'AgencyController@getAgencyDetailById')->name('agency.detail');
 
-Route::get('/extension', function () {return view('front.extension.extension-total');})->name('extension');
-Route::get('/extension/detail', function () {return view('front.extension.extension-detail');})->name('extension.detail');
+Route::get('/extension', 'ExtensionController@getAllExtensions')->name('extension');
+Route::get('/extension/detail/{id}', 'ExtensionController@getExtensionById')->name('extension.detail');
 
 Route::get('/movie', function () {return view('front.movie.movie-total');})->name('movie');
 Route::get('/movie/detail', function () {return view('front.movie.movie-detail');})->name('movie.detail');
@@ -34,18 +32,31 @@ Route::get('/news/detail', function () {return view('front.news.news-detail');})
 Route::get('/news/promo', function () {return view('front.news.promo');})->name('promo');
 Route::get('/news/hiring', function () {return view('front.news.hiring');})->name('hiring');
 
-Route::get('/room-order', function () {return view('front.room-order.room-order');})->name('room.order');
+Route::get('/room-order', 'RoomOrderController@create')->name('room.order');
+Route::post('/room-order', 'RoomOrderController@store')->name('room.order.store');
 
 Route::get('/room-price', function () {return view('front.room-price.room-price-total');})->name('room.price');
 
+Route::get('/profile', function () {return view('front.user.user-detail');})->name('user.profile');
+
 
 // route back for admin
-Route::get('/admin', function () {
-    return view('back.home.home');
+Route::get('/admin', 'AgencyController@index');
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::resource('agencies', 'AgencyController');
+    Route::resource('extensions', 'ExtensionController');
+    Route::resource('movies', 'MovieController');
+    Route::resource('movie-categories', 'MovieCategoryController');
+    Route::resource('newses', 'NewsController');
+    Route::resource('menus', 'MenuController');
+    Route::resource('room-prices', 'RoomPriceController');
+    Route::resource('room-orders', 'RoomOrderController')->only([
+        'index', 'show', 'destroy'
+    ]);
 });
+
 
 
 // route test
-Route::get('/test', function () {
-    return view('front.news.hiring');
-});
+//Route::get('/test/{id}', 'AgencyController@getContentAgencyById');
