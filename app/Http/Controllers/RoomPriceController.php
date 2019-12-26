@@ -94,4 +94,10 @@ class RoomPriceController extends Controller
         $this->roomPriceService->destroy($id);
         return redirect()->route('room-prices.index');
     }
+
+    public function getAllMenus()
+    {
+        $menus = $this->roomPriceService->getAll();
+        return view('front.room-price.room-price-total', compact('menus'));
+    }
 }

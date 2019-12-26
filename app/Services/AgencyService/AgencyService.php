@@ -43,9 +43,9 @@ class AgencyService implements AgencyServiceInterface
         return $this->agencyRepository->getById($id);
     }
 
-    public function getContentAgencyById($id)
+    public function getFourAgencies()
     {
-        $agency = $this->agencyRepository->getById($id);
-        return $agency->content;
+        $agencies = $this->agencyRepository->getFourAgencies(4);
+        return $agencies;
     }
 }

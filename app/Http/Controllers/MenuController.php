@@ -94,4 +94,10 @@ class MenuController extends Controller
         $this->menuService->destroy($id);
         return redirect()->route('menus.index');
     }
+
+    public function getAllMenus()
+    {
+        $menus = $this->menuService->getAll();
+        return view('front.menu.menu-total', compact('menus'));
+    }
 }

@@ -94,4 +94,16 @@ class ExtensionController extends Controller
         $this->extensionService->destroy($id);
         return redirect()->route('extensions.index');
     }
+
+    public function getAllExtensions()
+    {
+        $extensions = $this->extensionService->getAll();
+        return view('front.extension.extension-total', compact('extensions'));
+    }
+
+    public function getExtensionById($id)
+    {
+        $extension = $this->extensionService->findById($id);
+        return view('front.extension.extension-detail', compact('extension'));
+    }
 }
