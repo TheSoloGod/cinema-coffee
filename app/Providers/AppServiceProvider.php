@@ -16,6 +16,8 @@ use App\Repositories\NewsRepository\NewsRepository;
 use App\Repositories\NewsRepository\NewsRepositoryInterface;
 use App\Repositories\RoomOrderRepository\RoomOrderRepository;
 use App\Repositories\RoomOrderRepository\RoomOrderRepositoryInterface;
+use App\Repositories\RoomPriceRepository\RoomPriceRepository;
+use App\Repositories\RoomPriceRepository\RoomPriceRepositoryInterface;
 use App\Repositories\UserRepository\UserRepository;
 use App\Repositories\UserRepository\UserRepositoryInterface;
 use App\Services\AgencyService\AgencyService;
@@ -80,6 +82,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(
             RoomOrderRepositoryInterface::class,
             RoomOrderRepository::class
+        );
+
+        $this->app->singleton(
+            RoomPriceRepositoryInterface::class,
+            RoomPriceRepository::class
         );
 
         $this->app->singleton(
