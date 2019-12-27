@@ -2,16 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\AgencyService\AgencyServiceInterface;
 use App\Services\ExtensionService\ExtensionServiceInterface;
 use Illuminate\Http\Request;
 
 class ExtensionController extends Controller
 {
     protected $extensionService;
+    protected $agencyService;
 
-    public function __construct(ExtensionServiceInterface $extensionService)
+    public function __construct(ExtensionServiceInterface $extensionService,
+                                AgencyServiceInterface $agencyService)
     {
         $this->extensionService = $extensionService;
+        $this->agencyService = $agencyService;
     }
 
     /**
@@ -98,12 +102,15 @@ class ExtensionController extends Controller
     public function getAllExtensions()
     {
         $extensions = $this->extensionService->getAll();
-        return view('front.extension.extension-total', compact('extensions'));
+        $agencies = $this->agencyService->getAll();
+        return view('front.extension.extension-total', compact('extensions', 'agencies'));
     }
 
     public function getExtensionById($id)
     {
         $extension = $this->extensionService->findById($id);
-        return view('front.extension.extension-detail', compact('extension'));
+        $extensions = $this->extensionService->getAll();
+        $agencies = $this->agencyService->getAll();
+        return view('front.extension.extension-detail', compact('extension', 'extensions', 'agencies'));
     }
 }

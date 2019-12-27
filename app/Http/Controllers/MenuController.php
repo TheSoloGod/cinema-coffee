@@ -2,16 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\AgencyService\AgencyServiceInterface;
+use App\Services\ExtensionService\ExtensionService;
 use App\Services\MenuService\MenuServiceInterface;
 use Illuminate\Http\Request;
 
 class MenuController extends Controller
 {
     protected $menuService;
+    protected $agencyService;
+    protected $extensionService;
 
-    public function __construct(MenuServiceInterface $menuService)
+    public function __construct(MenuServiceInterface $menuService,
+                                AgencyServiceInterface $agencyService,
+                                ExtensionService $extensionService)
     {
         $this->menuService = $menuService;
+        $this->agencyService = $agencyService;
+        $this->extensionService = $extensionService;
     }
 
     /**
@@ -98,6 +106,8 @@ class MenuController extends Controller
     public function getAllMenus()
     {
         $menus = $this->menuService->getAll();
-        return view('front.menu.menu-total', compact('menus'));
+        $agencies = $this->agencyService->getAll();
+        $extensions = $this->extensionService->getAll();
+        return view('front.menu.menu-total', compact('menus', 'agencies', 'extensions'));
     }
 }

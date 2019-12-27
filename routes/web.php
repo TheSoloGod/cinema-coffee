@@ -21,21 +21,21 @@ Route::get('/agency/detail/{id}', 'AgencyController@getAgencyDetailById')->name(
 Route::get('/extension', 'ExtensionController@getAllExtensions')->name('extension');
 Route::get('/extension/detail/{id}', 'ExtensionController@getExtensionById')->name('extension.detail');
 
-Route::get('/movie', function () {return view('front.movie.movie-total');})->name('movie');
-Route::get('/movie/detail', function () {return view('front.movie.movie-detail');})->name('movie.detail');
-Route::get('/movie/search', function () {return view('front.movie.movie-search');})->name('movie.search');
+Route::get('/movie', 'MovieController@getMoviesHome')->name('movie');
+Route::get('/movie/detail/{id}', 'MovieController@getMovieById')->name('movie.detail');
+Route::post('/movie/search', 'MovieController@searchMovie')->name('movie.search');
 
-Route::get('/menu', function () {return view('front.menu.menu-total');})->name('menu');
+Route::get('/menu', 'MenuController@getAllMenus')->name('menu');
 
-Route::get('/news', function () {return view('front.news.news-total');})->name('news');
-Route::get('/news/detail', function () {return view('front.news.news-detail');})->name('news.detail');
+Route::get('/news', 'NewsController@getAllNews')->name('news');
+Route::get('/news/detail/{id}', 'NewsController@getNewsById')->name('news.detail');
 Route::get('/news/promo', function () {return view('front.news.promo');})->name('promo');
 Route::get('/news/hiring', function () {return view('front.news.hiring');})->name('hiring');
 
 Route::get('/room-order', 'RoomOrderController@create')->name('room.order');
 Route::post('/room-order', 'RoomOrderController@store')->name('room.order.store');
 
-Route::get('/room-price', function () {return view('front.room-price.room-price-total');})->name('room.price');
+Route::get('/room-price', 'RoomPriceController@getRoomPrice')->name('room.price');
 
 Route::get('/profile', function () {return view('front.user.user-detail');})->name('user.profile');
 

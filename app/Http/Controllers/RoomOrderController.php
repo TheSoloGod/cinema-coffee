@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Services\AgencyService\AgencyServiceInterface;
+use App\Services\ExtensionService\ExtensionService;
+use App\Services\ExtensionService\ExtensionServiceInterface;
 use App\Services\RoomOrderService\RoomOrderServiceInterface;
 use Illuminate\Http\Request;
 
@@ -10,11 +12,15 @@ class RoomOrderController extends Controller
 {
     protected $roomOrderService;
     protected $agencyService;
+    protected $extensionService;
 
-    public function __construct(RoomOrderServiceInterface $roomOrderService, AgencyServiceInterface $agencyService)
+    public function __construct(RoomOrderServiceInterface $roomOrderService,
+                                AgencyServiceInterface $agencyService,
+                                ExtensionServiceInterface $extensionService)
     {
         $this->roomOrderService = $roomOrderService;
         $this->agencyService = $agencyService;
+        $this->extensionService = $extensionService;
     }
 
     /**
@@ -36,7 +42,8 @@ class RoomOrderController extends Controller
     public function create()
     {
         $agencies = $this->agencyService->getAll();
-        return view('front.room-order.room-order', compact('agencies'));
+        $extensions = $this->extensionService->getAll();
+        return view('front.room-order.room-order', compact('agencies', 'extensions'));
     }
 
     /**

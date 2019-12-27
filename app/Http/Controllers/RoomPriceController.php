@@ -2,16 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\AgencyService\AgencyServiceInterface;
+use App\Services\ExtensionService\ExtensionService;
+use App\Services\ExtensionService\ExtensionServiceInterface;
 use App\Services\RoomPriceService\RoomPriceServiceInterface;
 use Illuminate\Http\Request;
 
 class RoomPriceController extends Controller
 {
     protected $roomPriceService;
+    protected $agencyService;
+    protected $extensionService;
 
-    public function __construct(RoomPriceServiceInterface $roomPriceService)
+    public function __construct(RoomPriceServiceInterface $roomPriceService,
+                                AgencyServiceInterface $agencyService,
+                                ExtensionServiceInterface $extensionService)
     {
         $this->roomPriceService = $roomPriceService;
+        $this->agencyService = $agencyService;
+        $this->extensionService = $extensionService;
     }
 
     /**
@@ -95,9 +104,11 @@ class RoomPriceController extends Controller
         return redirect()->route('room-prices.index');
     }
 
-    public function getAllMenus()
+    public function getRoomPrice()
     {
         $menus = $this->roomPriceService->getAll();
-        return view('front.room-price.room-price-total', compact('menus'));
+        $agencies = $this->agencyService->getAll();
+        $extensions = $this->extensionService->getAll();
+        return view('front.room-price.room-price-total', compact('menus', 'agencies', 'extensions'));
     }
 }

@@ -24,14 +24,10 @@
                         </a>
                         <div class="dropdown-menu bg-orange mt-4" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{route('agency')}}">Tất cả cơ sở</a>
-{{--                            <div class="dropdown-divider"></div>--}}
-{{--                            <a class="dropdown-item" href="{{route('agency.detail')}}">Xã Đàn</a>--}}
-{{--                            <div class="dropdown-divider"></div>--}}
-{{--                            <a class="dropdown-item" href="{{route('agency.detail')}}">Mỹ Đình</a>--}}
-{{--                            <div class="dropdown-divider"></div>--}}
-{{--                            <a class="dropdown-item" href="{{route('agency.detail')}}">Hà Đông</a>--}}
-{{--                            <div class="dropdown-divider"></div>--}}
-{{--                            <a class="dropdown-item" href="{{route('agency.detail')}}">Long Biên</a>--}}
+                            @foreach($agencies as $key => $agency)
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{route('agency.detail', $agency->id)}}">{{ $agency->name }}</a>
+                            @endforeach
                         </div>
                     </li>
                     <li class="nav-item dropdown active">
@@ -41,18 +37,10 @@
                         </a>
                         <div class="dropdown-menu bg-orange mt-4" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{route('extension')}}">Tất cả dịch vụ</a>
-{{--                            <div class="dropdown-divider"></div>--}}
-{{--                            <a class="dropdown-item" href="{{route('extension.detail')}}">Cafe phim phòng riêng</a>--}}
-{{--                            <div class="dropdown-divider"></div>--}}
-{{--                            <a class="dropdown-item" href="{{route('extension.detail')}}">Xem phim gia đình</a>--}}
-{{--                            <div class="dropdown-divider"></div>--}}
-{{--                            <a class="dropdown-item" href="{{route('extension.detail')}}">Tổ chức sự kiện lãng mạn</a>--}}
-{{--                            <div class="dropdown-divider"></div>--}}
-{{--                            <a class="dropdown-item" href="{{route('extension.detail')}}">Tổ chức sinh nhật</a>--}}
-{{--                            <div class="dropdown-divider"></div>--}}
-{{--                            <a class="dropdown-item" href="{{route('extension.detail')}}">Tổ chức Offline</a>--}}
-{{--                            <div class="dropdown-divider"></div>--}}
-{{--                            <a class="dropdown-item" href="{{route('extension.detail')}}">Tổ chức hội thảo, học nhóm</a>--}}
+                            @foreach($extensions as $key => $extension)
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{route('extension.detail', $extension->id)}}">{{ $extension->name }}</a>
+                            @endforeach
                         </div>
                     </li>
                     <li class="nav-item dropdown active">
@@ -85,7 +73,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{route('promo')}}">Khyến mại</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('news.detail')}}">Cafe phim</a>
+{{--                            <a class="dropdown-item" href="{{route('news.detail')}}">Cafe phim</a>--}}
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{route('hiring')}}">Tuyển dụng</a>
                         </div>
