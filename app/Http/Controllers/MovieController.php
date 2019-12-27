@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\AgencyService\AgencyServiceInterface;
+use App\Services\ExtensionService\ExtensionService;
 use App\Services\MovieCategoryService\MovieCategoryServiceInterface;
 use App\Services\MovieService\MovieServiceInterface;
 use Illuminate\Http\Request;
@@ -10,11 +12,18 @@ class MovieController extends Controller
 {
     protected $movieService;
     protected $movieCategoryService;
+    protected $agencyService;
+    protected $extensionService;
 
-    public function __construct(MovieServiceInterface $movieService, MovieCategoryServiceInterface $movieCategoryService)
+    public function __construct(MovieServiceInterface $movieService,
+                                MovieCategoryServiceInterface $movieCategoryService,
+                                AgencyServiceInterface $agencyService,
+                                ExtensionService $extensionService)
     {
         $this->movieService = $movieService;
         $this->movieCategoryService = $movieCategoryService;
+        $this->agencyService = $agencyService;
+        $this->extensionService = $extensionService;
     }
 
     /**
@@ -104,18 +113,28 @@ class MovieController extends Controller
     {
         $recommendMovies = $this->movieService->getRecommendMovies();
         $newMovies = $this->movieService->getNewMovies();
-        return view('front.movie.movie-total', compact('recommendMovies', 'newMovies'));
+        $agencies = $this->agencyService->getAll();
+        $extensions = $this->extensionService->getAll();
+        return view('front.movie.movie-total', compact('recommendMovies', 'newMovies', 'agencies', 'extensions'));
     }
 
     public function getMovieById($id)
     {
-        $movie = $this->movieService->findById($id)   ;
-        return view('front.movie.movie-detail', compact('movie'));
+        $movie = $this->movieService->findById($id);
+        $agencies = $this->agencyService->getAll();
+        $extensions = $this->extensionService->getAll();
+        $movieCategory = $this->movieCategoryService->findById($movie->movie_category_id)->name;
+        $movieCategories = $this->movieCategoryService->getAll();
+        return view('front.movie.movie-detail', compact('movie', 'movieCategory', 'movieCategories', 'agencies', 'extensions'));
     }
 
     public function searchMovie(Request $request)
     {
         $movies = $this->movieService->searchMovie($request);
-        return view('front.movie.movie-search', compact('movies'));
+        $keyWord = $request->key_word;
+        $agencies = $this->agencyService->getAll();
+        $extensions = $this->extensionService->getAll();
+        $movieCategories = $this->movieCategoryService->getAll();
+        return view('front.movie.movie-search', compact('movies', 'movieCategories', 'keyWord', 'agencies', 'extensions'));
     }
 }

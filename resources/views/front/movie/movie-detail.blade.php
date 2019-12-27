@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12">
                     <h1 class="header-title">
-                        Joker (2019) : Joker
+                        {{ $movie->name }}
                     </h1>
                 </div>
             </div>
@@ -20,7 +20,7 @@
                 <!-- film info -->
                 <div class="row">
                     <div class="col-5">
-                        <img src="https://poster.ninja/wp-content/uploads/2019/08/Joker-Movie-Poster-2019-1.jpg" alt=""
+                        <img src="{{asset("upload/images/".$movie->image)}}" alt=""
                         class="w-100">
                     </div>
                     <div class="col-7 shadow-body p-3">
@@ -31,7 +31,7 @@
                                 </strong>
                             </span>
                             <span style="color:darkorange;">
-                                Kinh dị . Tâm lý . Hài hước .
+                                {{ $movieCategory }}
                             </span>
                         </div>
                         <hr>
@@ -42,7 +42,7 @@
                                 </strong>
                             </span>
                             <span style="color:darkorange;">
-                               121 phút
+                               {{ $movie->time }} phút
                             </span>
                         </div>
                         <hr>
@@ -53,7 +53,7 @@
                                 </strong>
                             </span>
                             <span style="color:darkorange;">
-                                Mỹ
+                                {{ $movie->national }}
                             </span>
                         </div>
                         <hr>
@@ -64,7 +64,7 @@
                                 </strong>
                             </span>
                             <span style="color:darkorange;">
-                                2019
+                                {{ $movie->year }}
                             </span>
                         </div>
                         <hr>
@@ -75,12 +75,12 @@
                                 </strong>
                             </span>
                             <span style="color:darkorange;">
-                                8.7
+                                {{ $movie->imdb }}
                             </span>
                         </div>
                         <hr>
                         <div class="text-center">
-                            <a href="">
+                            <a href="{{ route('room.order') }}">
                                 <button class="btn btn-warning btn-lg">
                                     Đặt phòng
                                 </button>
@@ -103,16 +103,7 @@
                         </div>
                         <br>
                         <div>
-                            <p>
-                                Joker từ lâu đã là siêu ác nhân huyền thoại của điện ảnh thế giới.
-                                Nhưng có bao giờ bạn tự hỏi, Joker đến từ đâu và điều gì đã biến Joker trở thành biểu tượng
-                                tội lỗi của thành phố Gotham? JOKER sẽ là cái nhìn độc đáo về tên ác nhân khét tiếng của
-                                Vũ trụ DC – một câu chuyện gốc thấm nhuần, nhưng tách biệt rõ ràng với những truyền thuyết
-                                quen thuộc xoay quanh nhân vật mang đầy tính biểu tượng này. Bộ phim đã xuất sắc giành
-                                giải thưởng Sư Tử Vàng- Phim Hay Nhất tại LHP Venice lần thứ 76, cùng tràng pháo tay dài 8 phút,
-                                và lời khen ngợi dành cho diễn xuất của tài tử Joaquin Phoenix.
-                                Một bộ phim không thể bỏ lỡ của tháng 10 năm nay.
-                            </p>
+                            {!! $movie->content !!}
                         </div>
                     </div>
                 </div>
@@ -140,10 +131,19 @@
 
                 <!-- search -->
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Tìm kiếm">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-warning" type="button">Tìm kiếm</button>
-                    </div>
+                    <form class="w-100" method="post" action="{{ route('movie.search') }}">
+                        @csrf
+                        <div class="row pr-3 pl-3">
+                            <div class="col-8 p-0">
+                                <input type="text" class="form-control" placeholder="Nhập tên phim" name="key_word">
+                            </div>
+                            <div class="col-4 p-0">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-warning" type="submit">Tìm kiếm</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
 
                 <!-- film catgory -->
@@ -154,36 +154,13 @@
                         </strong>
                     </div>
                     <div class="sticky-menu">
-                        <a class="" href="#">
-                            <div class="sticky-item">
-                                Hoạt hình
-                            </div>
-                        </a>
-                        <a class="" href="#">
-                            <div class="sticky-item">
-                                Tâm lý
-                            </div>
-                        </a>
-                        <a class="" href="#">
-                            <div class="sticky-item">
-                                Kinh dị
-                            </div>
-                        </a>
-                        <a class="" href="#">
-                            <div class="sticky-item">
-                                Tình cảm - lãng mạn
-                            </div>
-                        </a>
-                        <a class="" href="#">
-                            <div class="sticky-item">
-                                Hài hước
-                            </div>
-                        </a>
-                        <a class="" href="#">
-                            <div class="sticky-item">
-                                18+
-                            </div>
-                        </a>
+                        @foreach($movieCategories as $key => $movieCategory)
+                            <a class="" href="#">
+                                <div class="sticky-item">
+                                    {{ $movieCategory->name }}
+                                </div>
+                            </a>
+                        @endforeach
                     </div>
                 </div>
 

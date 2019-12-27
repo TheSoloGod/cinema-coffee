@@ -1,36 +1,13 @@
 <div class="sticky-top">
     <div class="shadow-body">
         <div class="sticky-menu">
-            <a class="" href="#">
-                <div class="sticky-item">
-                    Cafe phim phòng riêng
-                </div>
-            </a>
-            <a class="" href="#">
-                <div class="sticky-item">
-                    Xem phim gia đình
-                </div>
-            </a>
-            <a class="" href="#">
-                <div class="sticky-item">
-                    Tổ chức sự kiện lãng mạn
-                </div>
-            </a>
-            <a class="" href="#">
-                <div class="sticky-item">
-                    Tổ chức sinh nhật
-                </div>
-            </a>
-            <a class="" href="#">
-                <div class="sticky-item">
-                    Tổ chức Offline
-                </div>
-            </a>
-            <a class="" href="#">
-                <div class="sticky-item">
-                    Tổ chức hội thảo, học nhóm
-                </div>
-            </a>
+            @foreach($extensions as $key => $extension)
+                <a class="" href="{{ route('extension.detail', $extension->id) }}">
+                    <div class="sticky-item">
+                        {{ $extension->name }}
+                    </div>
+                </a>
+            @endforeach
         </div>
     </div>
 </div>

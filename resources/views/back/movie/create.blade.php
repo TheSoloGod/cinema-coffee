@@ -32,6 +32,10 @@
             <input type="number" class="form-control" id="year" name="year" placeholder="Năm phát hành">
         </div>
         <div class="form-group">
+            <label for="imdb">IMDb</label>
+            <input type="text" class="form-control" id="imdb" name="imdb" placeholder="Điểm IMDb">
+        </div>
+        <div class="form-group">
             <label for="national">Quốc gia</label>
             <input type="text" class="form-control" id="national" name="national" placeholder="Quốc gia">
         </div>

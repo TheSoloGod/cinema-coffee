@@ -6,6 +6,7 @@
             <th scope="col">#</th>
             <th scope="col">Hình ảnh</th>
             <th scope="col">Tiêu đề</th>
+            <th scope="col">Thể loại</th>
             <th scope="col"></th>
         </tr>
         </thead>
@@ -15,6 +16,7 @@
                 <th scope="row">{{++$key}}</th>
                 <td><img width="150px" src="{{asset("upload/images/$news->image")}}"></td>
                 <td>{{$news->title}}</td>
+                <td>{{ $news->type }}</td>
                 <td>
                     <div class="row">
                         <div class="col-6">

@@ -17,7 +17,7 @@ class MovieRepository extends EloquentRepository implements MovieRepositoryInter
     public function getRecommendMovies()
     {
         $recommendMovies = $this->model->orderBy('id', 'asc')
-            ->limit(4)
+            ->limit(8)
             ->get();
         return $recommendMovies;
     }
@@ -25,7 +25,7 @@ class MovieRepository extends EloquentRepository implements MovieRepositoryInter
     public function getNewMovies()
     {
         $newMovies = $this->model->orderBy('id', 'desc')
-            ->limit(4)
+            ->limit(8)
             ->get();
         return $newMovies;
     }
