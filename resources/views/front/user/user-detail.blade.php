@@ -14,7 +14,18 @@
         </div>
     </div>
 
-    <div class="container">
-        profile here!
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-6">
+                <img src="https://forum.waka.vn/assets/avatars/default.svg"
+                    class="w-75 border rounded-circle">
+            </div>
+            <div class="col-6">
+                <form method="post" action="#">
+                    @csrf
+                    <input>
+                </form>
+            </div>
+        </div>
     </div>
     @endsection

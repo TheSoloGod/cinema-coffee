@@ -26,21 +26,22 @@
             @foreach($news as $key => $value)
                 <div class="col-4">
                     <div class="shadow-body p-3 mt-3">
-                        <div>
-                            <img src="{{asset("upload/images/$value->image")}}" alt=""
-                            class="w-100">
-                        </div>
-                        <div class="ml-4 mr-4 mt-2">
+                        <a href="{{ route('news.detail', $value->id) }}" style="color: black">
                             <div>
-                                <strong>
-                                    {{ $value->title }}
-                                </strong>
+                                <img src="{{asset("upload/images/$value->image")}}" alt=""
+                                class="w-100">
                             </div>
-{{--                            <div>--}}
-{{--                                {!! $value->content !!}--}}
-{{--                            </div>--}}
-                            <a href="{{ route('news.detail', $value->id) }}">Xem tiếp ...</a>
-                        </div>
+                            <div class="ml-4 mr-4 mt-2">
+                                <div>
+                                    <strong>
+                                        {{ $value->title }}
+                                    </strong>
+                                </div>
+    {{--                            <div>--}}
+    {{--                                {!! $value->content !!}--}}
+    {{--                            </div>--}}
+                            </div>
+                        </a>
                     </div>
                 </div>
             @endforeach

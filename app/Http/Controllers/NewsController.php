@@ -118,4 +118,26 @@ class NewsController extends Controller
         $extensions = $this->extensionService->getAll();
         return view('front.news.news-detail', compact('news', 'agencies', 'extensions'));
     }
+
+    public function getNewestNews()
+    {
+        $newestNews = $this->newsService->getNewestNews();
+        return $newestNews;
+    }
+
+    public function getPromoNews()
+    {
+        $promo = $this->newsService->getPromoNews();
+        $agencies = $this->agencyService->getAll();
+        $extensions = $this->extensionService->getAll();
+        return view('front.news.promo', compact('promo', 'agencies', 'extensions'));
+    }
+
+    public function getHiringNews()
+    {
+        $hiring = $this->newsService->getHiringNews();
+        $agencies = $this->agencyService->getAll();
+        $extensions = $this->extensionService->getAll();
+        return view('front.news.hiring', compact('hiring', 'agencies', 'extensions'));
+    }
 }

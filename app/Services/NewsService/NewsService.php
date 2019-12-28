@@ -42,4 +42,19 @@ class NewsService implements NewsServiceInterface
     public function findById($id) {
         return $this->newsRepository->getById($id);
     }
+
+    public function getNewestNews()
+    {
+        return $this->newsRepository->getNewestNews();
+    }
+
+    public function getPromoNews()
+    {
+        return $this->newsRepository->getPromoNews();
+    }
+
+    public function getHiringNews()
+    {
+        return $this->newsRepository->getHiringNews();
+    }
 }
