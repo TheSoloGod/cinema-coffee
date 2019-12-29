@@ -20,12 +20,13 @@
             </div>
             <div class="col-9">
                 <div class="shadow-body p-3">
-                    <div class="subtitle-body">
-                        Bảng giá phòng cafe phim, áp dụng toàn hệ thống với 04 cơ sở.
-                    </div>
-                    <hr>
-                    <img src="https://cafephim.vn/wp-content/uploads/2019/10/bang_gia_cafe_phim_ha_noi-01.jpg" alt=""
-                    class="w-100">
+                    @foreach($roomPrices as $key => $roomPrice)
+                        <div class="subtitle-body">
+                            {{ $roomPrice->name }}
+                        </div>
+                        <hr>
+                        {!! $roomPrice->content !!}
+                    @endforeach
                 </div>
             </div>
         </div>

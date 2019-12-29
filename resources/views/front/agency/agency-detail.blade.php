@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-12">
                     <h1 class="header-title">
-                        Cinema Coffee {{$agency->name}}
+                        {{$agency->name}}
                     </h1>
                 </div>
             </div>

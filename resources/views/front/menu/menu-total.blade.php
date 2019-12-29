@@ -27,8 +27,7 @@
         </div>
         <hr>
         <div class="shadow-body text-center mt-4">
-            <img src="{{asset("upload/images/$menu->image")}}" alt=""
-            class="w-100">
+            {!! $menu->content !!}
         </div>
     </div>
 

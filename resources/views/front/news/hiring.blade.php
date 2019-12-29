@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12">
                     <h1 class="header-title">
-                        {{ $hiring->type }}
+                        Tuyển dụng
                     </h1>
                 </div>
             </div>
