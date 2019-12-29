@@ -38,14 +38,14 @@ Route::post('/room-order', 'RoomOrderController@store')->name('room.order.store'
 Route::get('/room-price', 'RoomPriceController@getRoomPrice')->name('room.price');
 
 Route::get('/profile/{id}', 'UserController@getUserById')->name('user.profile');
-//Route::post('/profile/update', 'UserController@updateProfile')->name('user.profile.update');
+Route::post('/profile/update', 'UserController@updateProfile')->name('user.profile.update');
 //Route::get('profile/history', 'UserController@history')->name('user.history');
 
 
 // route back for admin
-Route::get('/admin', 'AgencyController@index');
+Route::get('/admin', 'AgencyController@index')->middleware('check.admin.login');
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'check.admin.login'], function () {
     Route::resource('agencies', 'AgencyController');
     Route::resource('extensions', 'ExtensionController');
     Route::resource('movies', 'MovieController');

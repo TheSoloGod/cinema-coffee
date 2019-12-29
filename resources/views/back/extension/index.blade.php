@@ -6,7 +6,11 @@
             <th scope="col">#</th>
             <th scope="col">Hình ảnh</th>
             <th scope="col">Tên dịch vụ</th>
-            <th scope="col"></th>
+            <th scope="col" class="text-center">
+                <a class="btn btn-primary" href="{{ route('extensions.create') }}">
+                    Thêm dịch vụ mới
+                </a>
+            </th>
         </tr>
         </thead>
         <tbody>

@@ -100,7 +100,7 @@
                             </a>
 
                             <div class="dropdown-menu bg-orange mt-4" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="{{ route('user.profile', Auth::user()->id) }}">
                                     Hồ sơ
                                 </a>
                                 <div class="dropdown-divider"></div>

@@ -7,7 +7,11 @@
             <th scope="col">Hình ảnh</th>
             <th scope="col">Tiêu đề</th>
             <th scope="col">Thể loại</th>
-            <th scope="col"></th>
+            <th scope="col" class="text-center">
+                <a class="btn btn-primary" href="{{ route('newses.create') }}">
+                    Thêm tin tức mới
+                </a>
+            </th>
         </tr>
         </thead>
         <tbody>

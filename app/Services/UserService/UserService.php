@@ -5,6 +5,7 @@ namespace App\Services\UserService;
 
 
 use App\Repositories\UserRepository\UserRepositoryInterface;
+use Illuminate\Support\Facades\Session;
 
 class UserService implements UserServiceInterface
 {
@@ -41,5 +42,12 @@ class UserService implements UserServiceInterface
 
     public function findById($id) {
         return $this->userRepository->getById($id);
+    }
+
+    public function updateProfile($request)
+    {
+        $currentUser = $this->userRepository->getById($request->id);
+        Session::flash('status', 'Cập nhật thông tin thành công');
+        return $this->userRepository->update($request->all(), $currentUser);
     }
 }
