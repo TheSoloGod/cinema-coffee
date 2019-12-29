@@ -13,4 +13,19 @@ class NewsRepository extends EloquentRepository implements NewsRepositoryInterfa
     {
         return News::class;
     }
+
+    public function getPromoNews()
+    {
+        return $this->model->where('type', 'Khuyến mãi')->first();
+    }
+
+    public function getHiringNews()
+    {
+        return $this->model->where('type', 'Tuyển dụng')->first();
+    }
+
+    public function getNewestNews()
+    {
+        return $this->model->where('type', 'Cafe phim')->orderBy('created_at', 'desc')->first();
+    }
 }

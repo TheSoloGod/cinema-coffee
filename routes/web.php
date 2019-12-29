@@ -13,7 +13,7 @@
 
 Auth::routes();
 
-Route::get('/', function () {return view('front.home.home');})->name('home');
+Route::get('/', 'HomeController@getHomePage')->name('home');
 
 Route::get('/agency', 'AgencyController@getAllAgencies')->name('agency');
 Route::get('/agency/detail/{id}', 'AgencyController@getAgencyDetailById')->name('agency.detail');
@@ -29,8 +29,8 @@ Route::get('/menu', 'MenuController@getAllMenus')->name('menu');
 
 Route::get('/news', 'NewsController@getAllNews')->name('news');
 Route::get('/news/detail/{id}', 'NewsController@getNewsById')->name('news.detail');
-Route::get('/news/promo', function () {return view('front.news.promo');})->name('promo');
-Route::get('/news/hiring', function () {return view('front.news.hiring');})->name('hiring');
+Route::get('/news/promo', 'NewsController@getPromoNews')->name('promo');
+Route::get('/news/hiring', 'NewsController@getHiringNews')->name('hiring');
 
 Route::get('/room-order', 'RoomOrderController@create')->name('room.order');
 Route::get('/room-order/history/{user_id}', 'RoomOrderController@showHistory')->name('room.order.history');
@@ -38,7 +38,9 @@ Route::post('/room-order', 'RoomOrderController@store')->name('room.order.store'
 
 Route::get('/room-price', 'RoomPriceController@getRoomPrice')->name('room.price');
 
-Route::get('/profile', function () {return view('front.user.user-detail');})->name('user.profile');
+Route::get('/profile/{id}', 'UserController@getUserById')->name('user.profile');
+//Route::post('/profile/update', 'UserController@updateProfile')->name('user.profile.update');
+//Route::get('profile/history', 'UserController@history')->name('user.history');
 
 
 // route back for admin
@@ -55,6 +57,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('room-orders', 'RoomOrderController')->only([
         'index', 'show', 'destroy', 'update'
     ]);
+//    Route::resource('users', 'UserController');
 });
 
 
