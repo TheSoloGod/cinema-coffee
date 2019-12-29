@@ -33,6 +33,7 @@ Route::get('/news/promo', function () {return view('front.news.promo');})->name(
 Route::get('/news/hiring', function () {return view('front.news.hiring');})->name('hiring');
 
 Route::get('/room-order', 'RoomOrderController@create')->name('room.order');
+Route::get('/room-order/history/{user_id}', 'RoomOrderController@showHistory')->name('room.order.history');
 Route::post('/room-order', 'RoomOrderController@store')->name('room.order.store');
 
 Route::get('/room-price', 'RoomPriceController@getRoomPrice')->name('room.price');
@@ -52,7 +53,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('menus', 'MenuController');
     Route::resource('room-prices', 'RoomPriceController');
     Route::resource('room-orders', 'RoomOrderController')->only([
-        'index', 'show', 'destroy'
+        'index', 'show', 'destroy', 'update'
     ]);
 });
 
