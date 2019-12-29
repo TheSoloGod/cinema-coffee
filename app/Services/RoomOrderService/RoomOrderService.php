@@ -4,6 +4,7 @@
 namespace App\Services\RoomOrderService;
 
 
+use Illuminate\Support\Facades\Auth;
 use App\Repositories\RoomOrderRepository\RoomOrderRepositoryInterface;
 
 class RoomOrderService implements RoomOrderServiceInterface
@@ -20,7 +21,14 @@ class RoomOrderService implements RoomOrderServiceInterface
     }
 
     public function store($data) {
+        $user_id = Auth::user()->id;
+        $data['user_id'] = $user_id;
         $this->roomOrderRepository->create($data);
+    }
+
+    public function update($data, $id) {
+        $currentRoomOrder = $this->roomOrderRepository->getById($id);
+        $this->roomOrderRepository->update($data, $currentRoomOrder);
     }
 
     public function destroy($id) {

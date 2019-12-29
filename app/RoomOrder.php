@@ -13,4 +13,9 @@ class RoomOrder extends Model
     public function agency() {
         return $this->belongsTo('App\Agency');
     }
+
+    public function status()
+    {
+        return $this->belongsTo('App\Status');
+    }
 }

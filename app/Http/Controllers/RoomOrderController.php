@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\AgencyService\AgencyServiceInterface;
+use App\RoomOrder;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Services\ExtensionService\ExtensionService;
+use App\Services\AgencyService\AgencyServiceInterface;
 use App\Services\ExtensionService\ExtensionServiceInterface;
 use App\Services\RoomOrderService\RoomOrderServiceInterface;
-use Illuminate\Http\Request;
 
 class RoomOrderController extends Controller
 {
@@ -30,7 +32,7 @@ class RoomOrderController extends Controller
      */
     public function index()
     {
-        $roomOrders = $this->roomOrderService->getAll();
+        $roomOrders = $this->roomOrderService->getAll()->sortByDesc('created_at');
         return view('back.room-order.index', compact('roomOrders'));
     }
 
@@ -41,9 +43,14 @@ class RoomOrderController extends Controller
      */
     public function create()
     {
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
+        $today = date('Y-m-d', time());
+        $timeHistory = RoomOrder::where('created_at','LIKE', '%' . $today . '%')->where('status_id', '=', 2)->get('time');
         $agencies = $this->agencyService->getAll();
         $extensions = $this->extensionService->getAll();
-        return view('front.room-order.room-order', compact('agencies', 'extensions'));
+        return view('front.room-order.room-order', compact('agencies', 'extensions', 'timeHistory'));
     }
 
     /**
@@ -90,7 +97,8 @@ class RoomOrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->roomOrderService->update($request->all(), $id);
+        return redirect()->route('room-orders.index');
     }
 
     /**
@@ -103,5 +111,10 @@ class RoomOrderController extends Controller
     {
         $this->roomOrderService->destroy($id);
         return redirect()->route('room-orders.index');
+    }
+
+    public function showHistory($userId) {
+        $roomOrders = RoomOrder::where('user_id', $userId)->orderBy('created_at', 'Desc')->get();
+        return view('front.room-order.history', compact('roomOrders'));
     }
 }
