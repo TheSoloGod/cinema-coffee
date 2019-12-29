@@ -23,9 +23,9 @@ class MovieService implements MovieServiceInterface
         $fileImage = $data['image'];
         $fileImage->move('upload/images', $fileImage->getClientOriginalName());
         $data['image'] = $fileImage->getClientOriginalName();
-        $fileTrailer = $data['trailer'];
-        $fileTrailer->move('upload/images', $fileTrailer->getClientOriginalName());
-        $data['trailer'] = $fileTrailer->getClientOriginalName();
+//        $fileTrailer = $data['trailer'];
+//        $fileTrailer->move('upload/images', $fileTrailer->getClientOriginalName());
+//        $data['trailer'] = $fileTrailer->getClientOriginalName();
         $this->movieRepository->create($data);
     }
 

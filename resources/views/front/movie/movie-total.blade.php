@@ -92,15 +92,15 @@
                         </div>
                         <div class="carousel-item">
                             <div class="row">
-                                @for($i = 4; $i < 5; $i++)
-                                    <a href="#">
-                                        <div class="col" style="color: black">
+                                @for($i = 4; $i < 8; $i++)
+                                    <div class="col">
+                                        <a href="{{ route('movie.detail', $recommendMovies[$i]->id) }}" style="color: black">
                                             <img
                                                 src="{{asset("upload/images/".$recommendMovies[$i]->image)}}"
                                                 class="d-block w-100" alt="...">
                                             <p class="mb-0 mt-1"><strong>{{$recommendMovies[$i]->name}}</strong></p>
-                                        </div>
-                                    </a>
+                                        </a>
+                                    </div>
                                 @endfor
                             </div>
                         </div>

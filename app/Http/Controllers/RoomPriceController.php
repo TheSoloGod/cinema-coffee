@@ -106,9 +106,9 @@ class RoomPriceController extends Controller
 
     public function getRoomPrice()
     {
-        $menus = $this->roomPriceService->getAll();
+        $roomPrices = $this->roomPriceService->getAll();
         $agencies = $this->agencyService->getAll();
         $extensions = $this->extensionService->getAll();
-        return view('front.room-price.room-price-total', compact('menus', 'agencies', 'extensions'));
+        return view('front.room-price.room-price-total', compact('roomPrices', 'agencies', 'extensions'));
     }
 }

@@ -15,7 +15,7 @@
                             <p>Số 61, Ngõ 82 Chùa Láng - Đống Đa - Hà Nội</p>
                             <p class="title"><strong>Cinema Coffee Hà Đông</strong></p>
                             <p>Số 30 - An Hòa&nbsp;- Hà Đông - Hà Nội</p>
-                            <p><strong>Hotline 1: <a href="tel:02473033088">036 586 9993</a></strong></p>
+                            <p><strong>Hotline 1: <a href="tel:02473033088">0333831436</a></strong></p>
                         </div>
                     </div>
                 </div>
@@ -33,8 +33,8 @@
                                         riêng</a></li>
                                 <li id="menu-item-949"
                                     class="menu-item menu-item-type-custom menu-item-object-custom menu-item-949"><a
-                                        href="https://cafephim.vn/dich-vu/xem-phim-phong-rieng-gia-dinh/">Xem phim phòng
-                                        riêng gia đình</a></li>
+                                        href="https://cafephim.vn/dich-vu/xem-phim-phong-rieng-gia-dinh/">Xem phim gia đình</a>
+                                </li>
                                 <li id="menu-item-113"
                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-113"><a
                                         href="https://cafephim.vn/dich-vu/to-chuc-sinh-nhat/">Tổ chức sinh nhật</a></li>
@@ -59,8 +59,8 @@
                                 quản</h6>
                             <div class="siteorigin-widget-tinymce textwidget">
                                 <p><b>CÔNG TY CỔ PHẦN HKWEB VIỆT NAM&nbsp;</b></p>
-                                <p>Giấy phép đăng ký kinh doanh số: 0106842990</p>
-                                <p>Sở kế hoạch đầu tư Hà Nội cấp ngày 11/05/2015</p>
+                                <p>Giấy phép đăng ký kinh doanh số: 0123456789</p>
+                                <p>Sở kế hoạch đầu tư Hà Nội cấp ngày 20/03/2019</p>
                                 <p><a href="https://cafephim.vn/chinh-sach-bao-mat-thong-tin/"><b>Chính sách bảo mật
                                             thông tin</b></a></p>
                                 <p></p>

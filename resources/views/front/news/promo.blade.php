@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12">
                     <h1 class="header-title">
-                        {{ $promo->type }}
+                        Khuyến mại
                     </h1>
                 </div>
             </div>
@@ -19,6 +19,9 @@
                 {{ $promo->title }}
             </div>
             <hr>
+            <div class="text-left">
+                {!! $promo->content !!}
+            </div>
         </div>
         <div class="shadow-body">
             <img src="{{asset("upload/images/$promo->image")}}"
