@@ -6,7 +6,11 @@
             <th scope="col">#</th>
             <th scope="col">Hình ảnh</th>
             <th scope="col">Tên thực đơn</th>
-            <th scope="col"></th>
+            <th scope="col" class="text-center">
+                <a class="btn btn-primary" href="{{ route('menus.create') }}">
+                    Thêm thực đơn mới
+                </a>
+            </th>
         </tr>
         </thead>
         <tbody>

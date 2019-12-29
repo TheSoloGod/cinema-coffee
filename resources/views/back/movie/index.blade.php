@@ -6,7 +6,11 @@
             <th scope="col">#</th>
             <th scope="col">Hình ảnh</th>
             <th scope="col">Tên phim</th>
-            <th scope="col"></th>
+            <th scope="col" class="text-center">
+                <a class="btn btn-primary" href="{{ route('movies.create') }}">
+                    Thêm phim mới
+                </a>
+            </th>
         </tr>
         </thead>
         <tbody>

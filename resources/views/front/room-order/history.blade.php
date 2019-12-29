@@ -16,7 +16,8 @@
         </div>
     </div>
 
-    <div class="">
+    <div class="container">
+        <div class="shadow-body mt-4 mb-4">
         <table class="table table-hover">
             <thead>
             <tr>
@@ -38,15 +39,16 @@
                     <td>{{$roomOrder->time . ' '}}{{date('d-m-Y',strtotime($roomOrder->created_at))}}</td>
                     <td><span class="
                                     @if ($roomOrder->status_id == 1)
-                                        {{'bg-success text-light'}}
+                                        {{'bg-success text-light p-1'}}
                                     @endif
                                     @if ($roomOrder->status_id == 3)
-                                        {{'bg-danger text-light'}}
+                                        {{'bg-danger text-light p-1'}}
                                     @endif
                                     ">{{$roomOrder->status->name}}</span></td>
                 </tr>
             @endforeach
             </tbody>
         </table>
+        </div>
     </div>
 @endsection

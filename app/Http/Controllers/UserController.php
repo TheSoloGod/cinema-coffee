@@ -105,4 +105,12 @@ class UserController extends Controller
         $extensions = $this->extensionService->getAll();
         return view('front.user.user-detail', compact('user', 'agencies', 'extensions'));
     }
+
+    public function updateProfile(Request $request)
+    {
+        $user = $this->userService->updateProfile($request);
+        $agencies = $this->agencyService->getAll();
+        $extensions = $this->extensionService->getAll();
+        return redirect()->route('user.profile', compact('user', 'agencies', 'extensions'));
+    }
 }
