@@ -25,21 +25,27 @@
                 <td>{{$roomOrder->time . ' '}}{{date('d-m-Y',strtotime($roomOrder->created_at))}}</td>
                 <td><span class="
                                 @if ($roomOrder->status_id == 1)
-                                    {{'bg-success text-light'}}
+                                    {{'bg-success text-light p-1'}}
                                 @endif
                                 @if ($roomOrder->status_id == 3)
-                                    {{'bg-danger text-light'}}
+                                    {{'bg-danger text-light p-1'}}
                                 @endif
                                 ">{{$roomOrder->status->name}}</span></td>
                 <td>
-                    <a class="btn btn-success" href="{{route('room-orders.show', $roomOrder->id)}}">Chi tiết</a>
-                    <form method="post" action="{{route('room-orders.destroy', $roomOrder->id)}}">
-                        @csrf
-                        @method('delete')
-                        <button class="btn btn-danger" type="submit"
-                                onclick="return confirm('Bạn có chắc chắn muốn xóa')">Xóa
-                        </button>
-                    </form>
+                    <div class="row">
+                        <div class="col-6">
+                            <a class="btn btn-success float-right" href="{{route('room-orders.show', $roomOrder->id)}}">Chi tiết</a>
+                        </div>
+                        <div class="col-6">
+                            <form method="post" action="{{route('room-orders.destroy', $roomOrder->id)}}">
+                                @csrf
+                                @method('delete')
+                                <button class="btn btn-danger" type="submit"
+                                        onclick="return confirm('Bạn có chắc chắn muốn xóa')">Xóa
+                                </button>
+                            </form>
+                        </div>
+                    </div>
                 </td>
             </tr>
         @endforeach

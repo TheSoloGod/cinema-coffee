@@ -115,6 +115,8 @@ class RoomOrderController extends Controller
 
     public function showHistory($userId) {
         $roomOrders = RoomOrder::where('user_id', $userId)->orderBy('created_at', 'Desc')->get();
-        return view('front.room-order.history', compact('roomOrders'));
+        $agencies = $this->agencyService->getAll();
+        $extensions = $this->extensionService->getAll();
+        return view('front.room-order.history', compact('roomOrders', 'agencies', 'extensions'));
     }
 }
