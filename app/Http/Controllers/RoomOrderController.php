@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\RoomOrder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Services\ExtensionService\ExtensionService;
 use App\Services\AgencyService\AgencyServiceInterface;
@@ -47,10 +48,25 @@ class RoomOrderController extends Controller
             return redirect()->route('login');
         }
         $today = date('Y-m-d', time());
-        $timeHistory = RoomOrder::where('created_at','LIKE', '%' . $today . '%')->where('status_id', '=', 2)->get('time');
         $agencies = $this->agencyService->getAll();
         $extensions = $this->extensionService->getAll();
-        return view('front.room-order.room-order', compact('agencies', 'extensions', 'timeHistory'));
+        return view('front.room-order.room-order', compact('agencies', 'extensions'));
+    }
+
+    /**
+     * @param $agencyId
+     * @return Response
+     */
+    public function getTimeHistory(Request $request)
+    {
+        $timeHistory = DB::table('room_orders')
+                ->select('time', DB::raw('COUNT(*) as number_record'))
+                ->where('agency_id', $request->agencyId)
+                ->where('status_id', 2)
+                ->groupBy('time')
+                ->havingRaw('number_record = 3')
+                ->get();
+        return response()->json($timeHistory);
     }
 
     /**
