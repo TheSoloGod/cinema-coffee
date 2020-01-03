@@ -35,6 +35,7 @@ Route::get('/news/hiring', 'NewsController@getHiringNews')->name('hiring');
 Route::get('/room-order', 'RoomOrderController@create')->name('room.order');
 Route::get('/room-order/history/{user_id}', 'RoomOrderController@showHistory')->name('room.order.history');
 Route::post('/room-order', 'RoomOrderController@store')->name('room.order.store');
+Route::post('/getTimeHistory', 'RoomOrderController@getTimeHistory');
 
 Route::get('/room-price', 'RoomPriceController@getRoomPrice')->name('room.price');
 

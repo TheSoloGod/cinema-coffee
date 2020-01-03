@@ -50,7 +50,7 @@
                                 </div>
                                 <div class="col-md-12 mb-2">
                                     <label>Cơ sở</label>
-                                    <select name="agency_id" class="custom-select my-1 mr-sm-2">
+                                    <select id="agency_id" name="agency_id" class="custom-select my-1 mr-sm-2">
                                         @foreach($agencies as $agency)
                                             <option value="{{$agency->id}}">{{$agency->name}}</option>\
                                         @endforeach
@@ -64,19 +64,19 @@
                                     <table class="table text-center">
                                         <tbody>
                                             <tr>
-                                                <td style="cursor:pointer" class="time" scope="row">06:00</td>
-                                                <td style="cursor:pointer" class="time">08:00</td>
-                                                <td style="cursor:pointer" class="time">10:00</td>
+                                                <td style="cursor:pointer" scope="row">06:00</td>
+                                                <td style="cursor:pointer">08:00</td>
+                                                <td style="cursor:pointer">10:00</td>
                                             </tr>
                                             <tr>
-                                                <td style="cursor:pointer" class="time" scope="row">12:00</td>
-                                                <td style="cursor:pointer" class="time">14:00</td>
-                                                <td style="cursor:pointer" class="time">16:00</td>
+                                                <td style="cursor:pointer" scope="row">12:00</td>
+                                                <td style="cursor:pointer">14:00</td>
+                                                <td style="cursor:pointer">16:00</td>
                                             </tr>
                                             <tr>
-                                                <td style="cursor:pointer" class="time" scope="row">18:00</td>
-                                                <td style="cursor:pointer" class="time">20:00</td>
-                                                <td style="cursor:pointer" class="time">22:00</td>
+                                                <td style="cursor:pointer" scope="row">18:00</td>
+                                                <td style="cursor:pointer">20:00</td>
+                                                <td style="cursor:pointer">22:00</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -98,6 +98,5 @@
     </div>
 @endsection
 @section('script')
-    <script>var timeHistory = <?php echo $timeHistory ?></script>
     <script src="{{asset('js/room-order.js')}}"></script>
 @endsection
