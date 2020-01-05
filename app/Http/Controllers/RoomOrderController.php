@@ -6,6 +6,7 @@ use App\RoomOrder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\RoomOrderFormRequest;
 use App\Services\ExtensionService\ExtensionService;
 use App\Services\AgencyService\AgencyServiceInterface;
 use App\Services\ExtensionService\ExtensionServiceInterface;
@@ -47,7 +48,6 @@ class RoomOrderController extends Controller
         if (!Auth::check()) {
             return redirect()->route('login');
         }
-        $today = date('Y-m-d', time());
         $agencies = $this->agencyService->getAll();
         $extensions = $this->extensionService->getAll();
         return view('front.room-order.room-order', compact('agencies', 'extensions'));
@@ -59,10 +59,12 @@ class RoomOrderController extends Controller
      */
     public function getTimeHistory(Request $request)
     {
+        $today = date('Y-m-d', time());
         $timeHistory = DB::table('room_orders')
                 ->select('time', DB::raw('COUNT(*) as number_record'))
                 ->where('agency_id', $request->agencyId)
                 ->where('status_id', 2)
+                ->where('created_at','LIKE', '%' . $today . '%')
                 ->groupBy('time')
                 ->havingRaw('number_record = 3')
                 ->get();
@@ -75,10 +77,10 @@ class RoomOrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RoomOrderFormRequest $request)
     {
         $this->roomOrderService->store($request->all());
-        return redirect()->route('room.order');
+        return redirect()->route('room.order')->with('success', 'Đặt phòng thành công.');
     }
 
     /**

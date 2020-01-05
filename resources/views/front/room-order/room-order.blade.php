@@ -31,6 +31,11 @@
                             <div class="subtitle-body">
                                 ĐẶT PHÒNG ONLINE
                             </div>
+                            @if (Session::has('success'))
+                                <div class="alert alert-success" role="alert">                                
+                                    {{Session::get('success')}}                                
+                                </div>
+                            @endif
                             <p>
                                 Chúng tôi sẽ gọi lại ngay khi nhận được thông tin!
                             </p>
@@ -40,13 +45,13 @@
                             <div class="form-row">
                                 <div class="col-md-12 mb-2">
                                     <label>Họ và tên</label>
-                                    <input name="name" type="text" class="form-control"
-                                           placeholder="Vui lòng điền đầy đủ họ tên" required>
+                                    <input id="name" name="name" type="text" class="form-control"
+                                           placeholder="Vui lòng điền đầy đủ họ tên" required value="{{Auth::user()->name}}">
                                 </div>
                                 <div class="col-md-12 mb-2">
                                     <label>Số điện thoại</label>
-                                    <input name="phone" type="text" class="form-control"
-                                           placeholder="Vui lòng nhập đúng số điện thoại của bạn" required>
+                                    <input id="phone" name="phone" type="text" class="form-control"
+                                           placeholder="Vui lòng nhập đúng số điện thoại của bạn" required value="{{Auth::user()->phone}}">
                                 </div>
                                 <div class="col-md-12 mb-2">
                                     <label>Cơ sở</label>
@@ -61,6 +66,9 @@
                                 </div>
                                 <div class="col-md-12 mb-2">
                                     <label>Chọn giờ</label>
+                                    @error('time')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                     <table class="table text-center">
                                         <tbody>
                                             <tr>
@@ -87,7 +95,9 @@
                                               placeholder="Để lại lời nhắn cho chúng tôi"></textarea>
                                 </div>
                             </div>
-                            <div class="text-center pt-5 pb-3">
+                            <div class="text-center @if (!Session::has('success') && !$errors->any())
+                                {{'pt-5 pb-3'}}
+                            @endif">
                                 <button class="btn btn-warning btn-lg" type="submit">Đặt phòng ngay!</button>
                             </div>
                         </form>
@@ -95,6 +105,9 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div id="modal-loading" style="display: none" class="modal wrap_loading">
+        <div class="loader"></div>
     </div>
 @endsection
 @section('script')
