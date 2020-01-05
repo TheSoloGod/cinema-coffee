@@ -108,9 +108,8 @@ class UserController extends Controller
 
     public function updateProfile(Request $request)
     {
-        $user = $this->userService->updateProfile($request);
-        $agencies = $this->agencyService->getAll();
-        $extensions = $this->extensionService->getAll();
-        return redirect()->route('user.profile', compact('user', 'agencies', 'extensions'));
+        $this->userService->updateProfile($request);
+        $userId = $request->user()->id;
+        return redirect()->route('user.profile', compact('userId'));
     }
 }

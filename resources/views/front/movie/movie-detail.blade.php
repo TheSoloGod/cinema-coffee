@@ -97,9 +97,10 @@
                         </div>
                         <br>
                         <div>
-                            <video width="100%" height="auto" controls>
-                                <source src="{{ asset('front/side-page/trailer.mp4') }}" type="video/mp4">
-                            </video>
+{{--                            <video width="100%" height="auto" controls>--}}
+{{--                                <source src="{{ asset('front/side-page/trailer.mp4') }}" type="video/mp4">--}}
+{{--                            </video>--}}
+                            <iframe width="100%" height="450" src="{{ $movie->trailer }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <br>
                         <div>
