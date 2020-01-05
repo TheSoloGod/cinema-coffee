@@ -45,7 +45,7 @@ Route::post('/profile/update', 'UserController@updateProfile')->name('user.profi
 
 
 // route back for admin
-Route::get('/admin', 'AgencyController@index')->middleware('check.admin.login');
+Route::get('/admin', 'RoomOrderController@index')->middleware('check.admin.login');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'check.admin.login'], function () {
     Route::resource('agencies', 'AgencyController');

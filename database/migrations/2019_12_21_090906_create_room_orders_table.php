@@ -20,7 +20,7 @@ class CreateRoomOrdersTable extends Migration
             $table->string('phone');
             $table->unsignedBigInteger('agency_id');
             $table->string('time');
-            $table->string('note');
+            $table->string('note')->nullable();
             $table->unsignedInteger('status_id')->default(1);
             $table->timestamps();
             $table->foreign('agency_id')->references('id')->on('agencies')->onDelete('cascade');

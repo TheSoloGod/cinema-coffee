@@ -1,3 +1,11 @@
+let modalLoading = $('#modal-loading');
+$(document).ajaxStart(function () {
+    modalLoading.show();
+});
+
+$(document).ajaxStop(function () {
+    modalLoading.hide();
+});
 $(document).ready(function () {
 
     now = new Date();
