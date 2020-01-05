@@ -12,7 +12,7 @@
                 @csrf
                 @method('patch')
                 <select onchange="document.getElementById('status-form').submit()" name="status_id" id="status"> 
-                    <option {{$roomOrder->status_id == 1?'selected':''}} value="1">Đang sử lý</option>
+                    <option {{$roomOrder->status_id == 1?'selected':''}} value="1">Đang xử lý</option>
                     <option {{$roomOrder->status_id == 2?'selected':''}} value="2">Đã đặt</option>
                     <option {{$roomOrder->status_id == 3?'selected':''}} value="3">Đã hủy</option>
                 </select>
