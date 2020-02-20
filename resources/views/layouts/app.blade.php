@@ -20,6 +20,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('front/home/navbar.css') }}" rel="stylesheet">
     <link href="{{ asset('front/home/home.css') }}" rel="stylesheet">
+    
+    @yield('header')
 </head>
 <body>
     <div id="app">
