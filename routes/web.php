@@ -61,7 +61,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'check.admin.login'], functio
 //    Route::resource('users', 'UserController');
 });
 
-
-
 // route test
-//Route::get('/test/{id}', 'AgencyController@getContentAgencyById');
+Route::get('/test', 'TestController@test')->name('test');
