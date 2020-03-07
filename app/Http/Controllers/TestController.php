@@ -8,7 +8,6 @@ use App\User;
 class TestController extends Controller
 {
     public function test(Request $request) {
-        dd(1);
         $user = $request->user;
         $token = $request->token;
         $testUser = new User();
