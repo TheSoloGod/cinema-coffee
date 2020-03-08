@@ -8,6 +8,6 @@
     <title>Test</title>
 </head>
 <body>
-    <button>send</button>
+    <a href="{{ route('send') }}">send</a>
 </body>
 </html>

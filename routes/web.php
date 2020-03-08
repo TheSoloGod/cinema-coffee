@@ -62,4 +62,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'check.admin.login'], functio
 });
 
 // route test
-//Route::post('/test', 'TestController@test')->name('test');
+Route::get('test/index', 'TestController@index')->name('test.index');
+Route::get('/send', 'TestController@send')->name('send');
