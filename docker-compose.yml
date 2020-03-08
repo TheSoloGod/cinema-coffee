@@ -23,7 +23,7 @@ services:
       - MYSQL_ROOT_PASSWORD=1
       - MYSQL_DATABASE=cinema-coffee
     ports:
-      - 3306:3306.
+      - 3306:3306
 #
 #  phpmyadmin:
 #    container_name: php-myadmin
