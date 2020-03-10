@@ -56,9 +56,16 @@
 @section('header')
 <script src="https://script.tapfiliate.com/tapfiliate.js" type="text/javascript" async></script>
 <script type="text/javascript">
+    // (function(t,a,p){t.TapfiliateObject=a;t[a]=t[a]||function(){ (t[a].q=t[a].q||[]).push(arguments)}})(window,'tap');
+    //
+    // tap('create', '13520-033ca8', { integration: "javascript" });
+    // tap('conversion');
     (function(t,a,p){t.TapfiliateObject=a;t[a]=t[a]||function(){ (t[a].q=t[a].q||[]).push(arguments)}})(window,'tap');
 
-    tap('create', '13520-033ca8', { integration: "javascript" });
-    tap('conversion');
+    tap('create', '13520-033ca8');
+    tap('getTrackingId', null, function(trackingId) {
+        // Send tracking id to your backend and persist it
+        console.log(trackingId);
+    });
 </script>
 @endsection
