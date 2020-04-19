@@ -32,7 +32,7 @@
     <script src="{{ asset('front/home/home.js') }}"></script>
     <script type="text/javascript" src="{{asset('js/ckeditor/ckeditor.js')}}"></script>
 
-
+    @yield('header')
 </head>
 <body>
 {{--@include('back.layout.header')--}}

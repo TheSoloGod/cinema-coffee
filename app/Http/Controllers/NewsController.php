@@ -2,16 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\AgencyService\AgencyServiceInterface;
+use App\Services\ExtensionService\ExtensionServiceInterface;
 use App\Services\NewsService\NewsServiceInterface;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
     protected $newsService;
+    protected $agencyService;
+    protected $extensionService;
 
-    public function __construct(NewsServiceInterface $newsService)
+    public function __construct(NewsServiceInterface $newsService,
+                                AgencyServiceInterface $agencyService,
+                                ExtensionServiceInterface $extensionService)
     {
         $this->newsService = $newsService;
+        $this->agencyService = $agencyService;
+        $this->extensionService = $extensionService;
     }
 
     /**
@@ -98,12 +106,38 @@ class NewsController extends Controller
     public function getAllNews()
     {
         $news = $this->newsService->getAll();
-        return view('front.news.news-total', compact('news'));
+        $agencies = $this->agencyService->getAll();
+        $extensions = $this->extensionService->getAll();
+        return view('front.news.news-total', compact('news', 'agencies', 'extensions'));
     }
 
     public function getNewsById($id)
     {
         $news = $this->newsService->findById($id);
-        return view('front.news.news-detail', compact('news'));
+        $agencies = $this->agencyService->getAll();
+        $extensions = $this->extensionService->getAll();
+        return view('front.news.news-detail', compact('news', 'agencies', 'extensions'));
+    }
+
+    public function getNewestNews()
+    {
+        $newestNews = $this->newsService->getNewestNews();
+        return $newestNews;
+    }
+
+    public function getPromoNews()
+    {
+        $promo = $this->newsService->getPromoNews();
+        $agencies = $this->agencyService->getAll();
+        $extensions = $this->extensionService->getAll();
+        return view('front.news.promo', compact('promo', 'agencies', 'extensions'));
+    }
+
+    public function getHiringNews()
+    {
+        $hiring = $this->newsService->getHiringNews();
+        $agencies = $this->agencyService->getAll();
+        $extensions = $this->extensionService->getAll();
+        return view('front.news.hiring', compact('hiring', 'agencies', 'extensions'));
     }
 }

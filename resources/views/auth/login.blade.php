@@ -1,5 +1,15 @@
 @extends('layouts.app')
 
+@section('header')
+<script src="https://script.tapfiliate.com/tapfiliate.js" type="text/javascript" async></script>
+<script type="text/javascript">
+  (function(t,a,p){t.TapfiliateObject=a;t[a]=t[a]||function(){ (t[a].q=t[a].q||[]).push(arguments)}})(window,'tap');
+
+  tap('create', '13342-d5fa0f', { integration: "javascript" });
+  tap('detect');
+</script>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

@@ -13,7 +13,7 @@
 
 Auth::routes();
 
-Route::get('/', function () {return view('front.home.home');})->name('home');
+Route::get('/', 'HomeController@getHomePage')->name('home');
 
 Route::get('/agency', 'AgencyController@getAllAgencies')->name('agency');
 Route::get('/agency/detail/{id}', 'AgencyController@getAgencyDetailById')->name('agency.detail');
@@ -21,29 +21,33 @@ Route::get('/agency/detail/{id}', 'AgencyController@getAgencyDetailById')->name(
 Route::get('/extension', 'ExtensionController@getAllExtensions')->name('extension');
 Route::get('/extension/detail/{id}', 'ExtensionController@getExtensionById')->name('extension.detail');
 
-Route::get('/movie', function () {return view('front.movie.movie-total');})->name('movie');
-Route::get('/movie/detail', function () {return view('front.movie.movie-detail');})->name('movie.detail');
-Route::get('/movie/search', function () {return view('front.movie.movie-search');})->name('movie.search');
+Route::get('/movie', 'MovieController@getMoviesHome')->name('movie');
+Route::get('/movie/detail/{id}', 'MovieController@getMovieById')->name('movie.detail');
+Route::post('/movie/search', 'MovieController@searchMovie')->name('movie.search');
 
-Route::get('/menu', function () {return view('front.menu.menu-total');})->name('menu');
+Route::get('/menu', 'MenuController@getAllMenus')->name('menu');
 
-Route::get('/news', function () {return view('front.news.news-total');})->name('news');
-Route::get('/news/detail', function () {return view('front.news.news-detail');})->name('news.detail');
-Route::get('/news/promo', function () {return view('front.news.promo');})->name('promo');
-Route::get('/news/hiring', function () {return view('front.news.hiring');})->name('hiring');
+Route::get('/news', 'NewsController@getAllNews')->name('news');
+Route::get('/news/detail/{id}', 'NewsController@getNewsById')->name('news.detail');
+Route::get('/news/promo', 'NewsController@getPromoNews')->name('promo');
+Route::get('/news/hiring', 'NewsController@getHiringNews')->name('hiring');
 
 Route::get('/room-order', 'RoomOrderController@create')->name('room.order');
+Route::get('/room-order/history/{user_id}', 'RoomOrderController@showHistory')->name('room.order.history');
 Route::post('/room-order', 'RoomOrderController@store')->name('room.order.store');
+Route::post('/getTimeHistory', 'RoomOrderController@getTimeHistory');
 
-Route::get('/room-price', function () {return view('front.room-price.room-price-total');})->name('room.price');
+Route::get('/room-price', 'RoomPriceController@getRoomPrice')->name('room.price');
 
-Route::get('/profile', function () {return view('front.user.user-detail');})->name('user.profile');
+Route::get('/profile/{id}', 'UserController@getUserById')->name('user.profile');
+Route::post('/profile/update', 'UserController@updateProfile')->name('user.profile.update');
+//Route::get('profile/history', 'UserController@history')->name('user.history');
 
 
 // route back for admin
-Route::get('/admin', 'AgencyController@index');
+Route::get('/admin', 'RoomOrderController@index')->middleware('check.admin.login');
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'check.admin.login'], function () {
     Route::resource('agencies', 'AgencyController');
     Route::resource('extensions', 'ExtensionController');
     Route::resource('movies', 'MovieController');
@@ -52,8 +56,9 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('menus', 'MenuController');
     Route::resource('room-prices', 'RoomPriceController');
     Route::resource('room-orders', 'RoomOrderController')->only([
-        'index', 'show', 'destroy'
+        'index', 'show', 'destroy', 'update'
     ]);
+//    Route::resource('users', 'UserController');
 });
 
 

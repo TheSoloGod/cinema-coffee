@@ -39,11 +39,20 @@
         <!-- search -->
         <div>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Tìm kiếm theo tên phim"
-                       aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button class="btn btn-warning" style="width: 200px" type="button">Tìm kiếm</button>
-                </div>
+                <form method="post" action="{{ route('movie.search') }}" class="w-100">
+                    @csrf
+                    <div class="row">
+                        <div class="col-10">
+                            <input type="text" class="form-control" placeholder="Tìm kiếm theo tên phim"
+                                   aria-describedby="basic-addon2" name="key_word">
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group-append">
+                                <button class="btn btn-warning" style="width: 200px" type="submit">Tìm kiếm</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
 
@@ -69,66 +78,30 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="row">
-                                <div class="col">
-                                    <img
-                                        src="http://image.phimmoi.net/film/1920/poster.medium.jpg"
-                                        class="d-block w-100" alt="...">
-                                    <p class="mb-0"><a>Video title</a></p>
-                                    <p class="mb-0" style="color: grey"><a>Video description</a></p>
-                                </div>
-                                <div class="col">
-                                    <img
-                                        src="http://image.phimmoi.net/film/6906/poster.medium.jpg"
-                                        class="d-block w-100" alt="...">
-                                    <p class="mb-0"><a>Video title</a></p>
-                                    <p class="mb-0" style="color: grey"><a>Video description</a></p>
-                                </div>
-                                <div class="col">
-                                    <img
-                                        src="http://image.phimmoi.net/film/9505/poster.medium.jpg"
-                                        class="d-block w-100" alt="...">
-                                    <p class="mb-0"><a>Video title</a></p>
-                                    <p class="mb-0" style="color: grey"><a>Video description</a></p>
-                                </div>
-                                <div class="col">
-                                    <img
-                                        src="http://image.phimmoi.net/film/8932/poster.medium.jpg"
-                                        class="d-block w-100" alt="...">
-                                    <p class="mb-0"><a>Video title</a></p>
-                                    <p class="mb-0" style="color: grey"><a>Video description</a></p>
-                                </div>
+                                @for($i = 0; $i < 4; $i++)
+                                    <div class="col">
+                                        <a href="{{ route('movie.detail', $recommendMovies[$i]->id) }}" style="color: black">
+                                            <img
+                                                src="{{asset("upload/images/".$recommendMovies[$i]->image)}}"
+                                                class="d-block w-100" alt="...">
+                                            <p class="mb-0 mt-1"><strong>{{$recommendMovies[$i]->name}}</strong></p>
+                                        </a>
+                                    </div>
+                                @endfor
                             </div>
                         </div>
                         <div class="carousel-item">
                             <div class="row">
-                                <div class="col">
-                                    <img
-                                        src="http://image.phimmoi.net/film/8922/poster.medium.jpg"
-                                        class="d-block w-100" alt="...">
-                                    <p class="mb-0"><a>Video title</a></p>
-                                    <p class="mb-0" style="color: grey"><a>Video description</a></p>
-                                </div>
-                                <div class="col">
-                                    <img
-                                        src="http://image.phimmoi.net/film/1319/poster.medium.jpg"
-                                        class="d-block w-100" alt="...">
-                                    <p class="mb-0"><a>Video title</a></p>
-                                    <p class="mb-0" style="color: grey"><a>Video description</a></p>
-                                </div>
-                                <div class="col">
-                                    <img
-                                        src="http://image.phimmoi.net/film/8361/poster.medium.jpg"
-                                        class="d-block w-100" alt="...">
-                                    <p class="mb-0"><a>Video title</a></p>
-                                    <p class="mb-0" style="color: grey"><a>Video description</a></p>
-                                </div>
-                                <div class="col">
-                                    <img
-                                        src="http://image.phimmoi.net/film/8162/poster.medium.jpg"
-                                        class="d-block w-100" alt="...">
-                                    <p class="mb-0"><a>Video title</a></p>
-                                    <p class="mb-0" style="color: grey"><a>Video description</a></p>
-                                </div>
+                                @for($i = 4; $i < 8; $i++)
+                                    <div class="col">
+                                        <a href="{{ route('movie.detail', $recommendMovies[$i]->id) }}" style="color: black">
+                                            <img
+                                                src="{{asset("upload/images/".$recommendMovies[$i]->image)}}"
+                                                class="d-block w-100" alt="...">
+                                            <p class="mb-0 mt-1"><strong>{{$recommendMovies[$i]->name}}</strong></p>
+                                        </a>
+                                    </div>
+                                @endfor
                             </div>
                         </div>
                     </div>
@@ -163,66 +136,30 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="row">
-                                <div class="col">
-                                    <img
-                                        src="http://image.phimmoi.net/film/4496/poster.medium.jpg"
-                                        class="d-block w-100" alt="...">
-                                    <p class="mb-0"><a>Video title</a></p>
-                                    <p class="mb-0" style="color: grey"><a>Video description</a></p>
-                                </div>
-                                <div class="col">
-                                    <img
-                                        src="http://image.phimmoi.net/film/8359/poster.medium.jpg"
-                                        class="d-block w-100" alt="...">
-                                    <p class="mb-0"><a>Video title</a></p>
-                                    <p class="mb-0" style="color: grey"><a>Video description</a></p>
-                                </div>
-                                <div class="col">
-                                    <img
-                                        src="http://image.phimmoi.net/film/9672/poster.medium.jpg"
-                                        class="d-block w-100" alt="...">
-                                    <p class="mb-0"><a>Video title</a></p>
-                                    <p class="mb-0" style="color: grey"><a>Video description</a></p>
-                                </div>
-                                <div class="col">
-                                    <img
-                                        src="http://image.phimmoi.net/film/9626/poster.medium.jpg"
-                                        class="d-block w-100" alt="...">
-                                    <p class="mb-0"><a>Video title</a></p>
-                                    <p class="mb-0" style="color: grey"><a>Video description</a></p>
-                                </div>
+                                @for($i = 7; $i > 3; $i--)
+                                    <div class="col">
+                                        <a href="{{ route('movie.detail', $recommendMovies[$i]->id) }}" style="color: black">
+                                            <img
+                                                src="{{asset("upload/images/".$recommendMovies[$i]->image)}}"
+                                                class="d-block w-100" alt="...">
+                                            <p class="mb-0 mt-1"><strong>{{$recommendMovies[$i]->name}}</strong></p>
+                                        </a>
+                                    </div>
+                                @endfor
                             </div>
                         </div>
                         <div class="carousel-item">
                             <div class="row">
-                                <div class="col">
-                                    <img
-                                        src="http://image.phimmoi.net/film/8360/poster.medium.jpg"
-                                        class="d-block w-100" alt="...">
-                                    <p class="mb-0"><a>Video title</a></p>
-                                    <p class="mb-0" style="color: grey"><a>Video description</a></p>
-                                </div>
-                                <div class="col">
-                                    <img
-                                        src="http://image.phimmoi.net/film/9610/poster.medium.jpg"
-                                        class="d-block w-100" alt="...">
-                                    <p class="mb-0"><a>Video title</a></p>
-                                    <p class="mb-0" style="color: grey"><a>Video description</a></p>
-                                </div>
-                                <div class="col">
-                                    <img
-                                        src="http://image.phimmoi.net/film/2945/poster.medium.jpg"
-                                        class="d-block w-100" alt="...">
-                                    <p class="mb-0"><a>Video title</a></p>
-                                    <p class="mb-0" style="color: grey"><a>Video description</a></p>
-                                </div>
-                                <div class="col">
-                                    <img
-                                        src="http://image.phimmoi.net/film/9448/poster.medium.jpg"
-                                        class="d-block w-100" alt="...">
-                                    <p class="mb-0"><a>Video title</a></p>
-                                    <p class="mb-0" style="color: grey"><a>Video description</a></p>
-                                </div>
+                                @for($i = 3; $i >= 0; $i--)
+                                    <div class="col">
+                                        <a href="{{ route('movie.detail', $recommendMovies[$i]->id) }}" style="color: black">
+                                            <img
+                                                src="{{asset("upload/images/".$recommendMovies[$i]->image)}}"
+                                                class="d-block w-100" alt="...">
+                                            <p class="mb-0 mt-1"><strong>{{$recommendMovies[$i]->name}}</strong></p>
+                                        </a>
+                                    </div>
+                                @endfor
                             </div>
                         </div>
                     </div>

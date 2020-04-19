@@ -15,13 +15,17 @@ class CreateRoomOrdersTable extends Migration
     {
         Schema::create('room_orders', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->string('phone');
             $table->unsignedBigInteger('agency_id');
-            $table->date('order_date')->nullable();
-            $table->string('note');
+            $table->string('time');
+            $table->string('note')->nullable();
+            $table->unsignedInteger('status_id')->default(1);
             $table->timestamps();
             $table->foreign('agency_id')->references('id')->on('agencies')->onDelete('cascade');
+            $table->foreign('status_id')->references('id')->on('statuses')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

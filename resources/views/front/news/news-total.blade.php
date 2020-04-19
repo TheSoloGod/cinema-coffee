@@ -23,132 +23,28 @@
         </div>
 
         <div class="row">
-            <div class="col-4">
-                <div class="shadow-body p-3 mt-3">
-                    <div>
-                        <img src="https://cafephim.vn/wp-content/uploads/2019/12/TEST-2-848x480.jpg" alt=""
-                        class="w-100">
-                    </div>
-                    <div class="ml-4 mr-4 mt-2">
-                        <div>
-                            <strong>
-                                title
-                            </strong>
-                        </div>
-                        <div>
-                            <p>
-                                content here
-                            </p>
-                        </div>
-                        <a href="#">Xem tiếp ...</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="shadow-body p-3 mt-3">
-                    <div>
-                        <img src="https://cafephim.vn/wp-content/uploads/2019/12/TEST-2-848x480.jpg" alt=""
-                             class="w-100">
-                    </div>
-                    <div class="ml-4 mr-4 mt-2">
-                        <div>
-                            <strong>
-                                title
-                            </strong>
-                        </div>
-                        <div>
-                            <p>
-                                content here
-                            </p>
-                        </div>
-                        <a href="#">Xem tiếp ...</a>
+            @foreach($news as $key => $value)
+                <div class="col-4">
+                    <div class="shadow-body p-3 mt-3">
+                        <a href="{{ route('news.detail', $value->id) }}" style="color: black">
+                            <div>
+                                <img src="{{asset("upload/images/$value->image")}}" alt=""
+                                class="w-100">
+                            </div>
+                            <div class="ml-4 mr-4 mt-2">
+                                <div>
+                                    <strong>
+                                        {{ $value->title }}
+                                    </strong>
+                                </div>
+    {{--                            <div>--}}
+    {{--                                {!! $value->content !!}--}}
+    {{--                            </div>--}}
+                            </div>
+                        </a>
                     </div>
                 </div>
-            </div>
-            <div class="col-4">
-                <div class="shadow-body p-3 mt-3">
-                    <div>
-                        <img src="https://cafephim.vn/wp-content/uploads/2019/12/TEST-2-848x480.jpg" alt=""
-                             class="w-100">
-                    </div>
-                    <div class="ml-4 mr-4 mt-2">
-                        <div>
-                            <strong>
-                                title
-                            </strong>
-                        </div>
-                        <div>
-                            <p>
-                                content here
-                            </p>
-                        </div>
-                        <a href="#">Xem tiếp ...</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="shadow-body p-3 mt-3">
-                    <div>
-                        <img src="https://cafephim.vn/wp-content/uploads/2019/12/TEST-2-848x480.jpg" alt=""
-                             class="w-100">
-                    </div>
-                    <div class="ml-4 mr-4 mt-2">
-                        <div>
-                            <strong>
-                                title
-                            </strong>
-                        </div>
-                        <div>
-                            <p>
-                                content here
-                            </p>
-                        </div>
-                        <a href="#">Xem tiếp ...</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="shadow-body p-3 mt-3">
-                    <div>
-                        <img src="https://cafephim.vn/wp-content/uploads/2019/12/TEST-2-848x480.jpg" alt=""
-                             class="w-100">
-                    </div>
-                    <div class="ml-4 mr-4 mt-2">
-                        <div>
-                            <strong>
-                                title
-                            </strong>
-                        </div>
-                        <div>
-                            <p>
-                                content here
-                            </p>
-                        </div>
-                        <a href="#">Xem tiếp ...</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="shadow-body p-3 mt-3">
-                    <div>
-                        <img src="https://cafephim.vn/wp-content/uploads/2019/12/TEST-2-848x480.jpg" alt=""
-                             class="w-100">
-                    </div>
-                    <div class="ml-4 mr-4 mt-2">
-                        <div>
-                            <strong>
-                                title
-                            </strong>
-                        </div>
-                        <div>
-                            <p>
-                                content here
-                            </p>
-                        </div>
-                        <a href="#">Xem tiếp ...</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     @endsection

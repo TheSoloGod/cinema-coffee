@@ -2,16 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\AgencyService\AgencyServiceInterface;
+use App\Services\ExtensionService\ExtensionServiceInterface;
 use App\Services\UserService\UserServiceInterface;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     protected $userService;
+    protected $agencyService;
+    protected $extensionService;
 
-    public function __construct(UserServiceInterface $userService)
+    public function __construct(UserServiceInterface $userService,
+                                AgencyServiceInterface $agencyService,
+                                ExtensionServiceInterface $extensionService)
     {
         $this->userService = $userService;
+        $this->agencyService = $agencyService;
+        $this->extensionService = $extensionService;
     }
 
     /**
@@ -93,6 +101,15 @@ class UserController extends Controller
     public function getUserById($id)
     {
         $user = $this->userService->findById($id);
-        return view('front.user.user-detail', compact('user'));
+        $agencies = $this->agencyService->getAll();
+        $extensions = $this->extensionService->getAll();
+        return view('front.user.user-detail', compact('user', 'agencies', 'extensions'));
+    }
+
+    public function updateProfile(Request $request)
+    {
+        $this->userService->updateProfile($request);
+        $userId = $request->user()->id;
+        return redirect()->route('user.profile', compact('userId'));
     }
 }

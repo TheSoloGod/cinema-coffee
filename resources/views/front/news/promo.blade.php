@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12">
                     <h1 class="header-title">
-                        Khuyến mãi
+                        Khuyến mại
                     </h1>
                 </div>
             </div>
@@ -16,12 +16,15 @@
     <div class="container mt-4 mb-5">
         <div class="mt-4 text-center">
             <div class="subtitle-body">
-                Ưu đãi hấp dẫn tại Cinema Coffee
+                {{ $promo->title }}
             </div>
             <hr>
+            <div class="text-left">
+                {!! $promo->content !!}
+            </div>
         </div>
         <div class="shadow-body">
-            <img src="https://cafephim.vn/wp-content/uploads/2019/10/chuong_trinh_khuyen_mai_cine_cafe_cafe_phim_ha_noi.jpg"
+            <img src="{{asset("upload/images/$promo->image")}}"
                  alt="" class="w-100">
         </div>
     </div>
