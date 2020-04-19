@@ -180,7 +180,7 @@
     <div class="container mt-4 mb-4">
         <div class="shadow-body text-center mt-4">
             <div class="pt-5 pb-5">
-                <a href="#">
+                <a href="{{ route('room.order') }}">
                     <img class="aligncenter wp-image-1575 size-medium"
                          src="https://cafephim.vn/wp-content/uploads/2019/06/nút-giảm-20-300x87.png"
                          alt="" width="300" height="87">
