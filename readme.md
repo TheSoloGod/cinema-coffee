@@ -50,3 +50,5 @@ Step 8: localhost:8080 => (login PHP Myadmin) => import <cinema-coffee-new.sql> 
 Step 9: localhost => (hompage)=> login (user/pass => member@gmail.com/member12)
 
 Step 10: localhost/admin => (admin page) => login (user/pass => admin@gmail.com/admin123)
+
+<LIÊN HỆ> kienaof94@gmail.com
