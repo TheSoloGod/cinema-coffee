@@ -45,8 +45,8 @@ Step 6: composer install
 
 Step 7: chmod -R 777 storage
 
-Step 8: localhost:8080 -> import <cinema-coffee-new.sql> to <cinema-coffe>
+Step 8: localhost:8080 => (login PHP Myadmin) => import <cinema-coffee-new.sql> to <cinema-coffee>
 
-Step 9: localhost => login (user/pass => member@gmail.com/menber12)
+Step 9: localhost => (hompage)=> login (user/pass => member@gmail.com/member12)
 
-Step 10: localhost/admin => login (user/pass => admin@gmail.com/admin123)
+Step 10: localhost/admin => (admin page) => login (user/pass => admin@gmail.com/admin123)
