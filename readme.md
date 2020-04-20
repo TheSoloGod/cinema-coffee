@@ -1,4 +1,4 @@
-<CHÚ Ý> Hướng dẫn sử dụng project mẫu áp dụng Docker, Repository patern dành cho học viên Codegym.
+<CHÚ Ý> Hướng dẫn sử dụng project mẫu áp dụng Docker, Repository pattern dành cho học viên Codegym.
 
 <CHÚ Ý> Docker trong project cài trên ubuntu clean, KHÔNG cài môi trường PHP, Apache và Mysql.
 Nếu sử dụng trên ubuntu đã cài sẵn môi trường, vui lòng tìm hiểu thêm về docker để biết cách config lại cổng.
